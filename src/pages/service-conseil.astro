@@ -1,10 +1,10 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import "../styles/global.css";
-import logo from "../assets/eesad-logo.png";
+import logo from "../assets/consortium.png";
 import { theme } from "../config/theme.js";
 
-const { bandBackground, waveFill, glowColor } = theme.colors;
+const { background, text, accent, border, bandBackground } = theme.colors;
 
 const inclus = [
   {
@@ -44,10 +44,25 @@ const nonInclus = [
 
 <SiteLayout title="Service conseil TI – Réseau EÉSAD">
 
-  <!-- HEADER SLOT -->
+  <div style={`--bg: ${background}; --text: ${text}; --accent: ${accent}; --border: ${border}; --band: ${bandBackground}; `}>
+
+  
+    <style>
+      /* Surfaces noires (comme index) */
+      .card-surface { background: rgb(18,18,18); border: 1px solid rgba(0,0,0,0.16); box-shadow: 0 14px 40px rgba(0,0,0,0.18); }
+      .card-icon { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); }
+      .hover-tint { background: radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 62%); }
+      .muted-on-dark { color: color-mix(in srgb, white 70%, transparent); }
+      .soft-on-dark  { color: color-mix(in srgb, white 82%, transparent); }
+      .band-title { color: rgba(17,17,17,0.92); }
+      .band-soft  { color: rgba(17,17,17,0.75); }
+      .band-muted { color: rgba(17,17,17,0.62); }
+      .focus-ring:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+    </style>
+<!-- HEADER SLOT -->
   <div slot="header" class="relative mx-auto flex flex-col items-center gap-3 z-10">
-    <img src={logo.src} alt="EÉSAD" class="h-20 w-auto" />
-    <h1 class="text-sm tracking-[0.25em] text-slate-400 uppercase">
+    <img src={logo.src} alt="EÉSAD" class="h-32 w-auto" />
+    <h1 class="text-sm tracking-[0.25em] text-[color-mix(in_srgb,var(--text)_55%,transparent)] uppercase">
       Service conseil TI
     </h1>
   </div>
@@ -62,20 +77,20 @@ const nonInclus = [
              blur-[70px] opacity-80"
     ></div>
 
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-100">
+    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-[var(--text)]">
       Conseil TI pour les organisations membres du réseau EÉSAD
     </h2>
 
-    <p class="mt-4 text-lg text-slate-300">
+    <p class="mt-4 text-lg text-[color-mix(in_srgb,var(--text)_78%,transparent)]">
       Les organisations qui contribuent financièrement au réseau EÉSAD ont accès à des heures de
       service conseil TI : validation de soumissions, consultation et recommandations.
-      <span class="text-slate-200 font-semibold">Ce service n’inclut pas d’interventions informatiques.</span>
+      <span class="text-[color-mix(in_srgb,var(--text)_90%,transparent)] font-semibold">Ce service n’inclut pas d’interventions informatiques.</span>
     </p>
 
     <a
       href="#demande"
       class="inline-block mt-6 px-6 py-3 rounded-xl font-semibold
-             bg-gradient-to-r from-sky-400 to-indigo-400
+             bg-[linear-gradient(90deg,color-mix(in_srgb,var(--accent)_90%,white_10%),color-mix(in_srgb,var(--accent)_70%,black_30%))]
              text-slate-900 hover:brightness-110 transition"
     >
       Demander une consultation
@@ -87,8 +102,8 @@ const nonInclus = [
     href="/"
     class="fixed right-6 top-5 z-50
            inline-flex items-center px-4 py-2 rounded-lg
-           bg-slate-800/80 border border-slate-700 
-           text-slate-200 text-sm font-medium
+           bg-slate-800/80 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] 
+           text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm font-medium
            hover:bg-slate-700 hover:border-sky-400 hover:text-sky-100
            shadow-lg backdrop-blur
            transition-all"
@@ -99,23 +114,15 @@ const nonInclus = [
   <!-- WAVE + CONTENT BAND -->
   <section
     class="relative w-full overflow-hidden -mt-20"
-    style={`background-color: ${bandBackground};`}
+    style="background: var(--band);"
   >
-    <div class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 bg-sky-500/10 blur-3xl z-0"></div>
+      <!-- LIGNE OR + FADE (comme index) -->
+      <div class="h-[2px] w-full" style="background: var(--accent);"></div>
+      <div class="h-14 w-full" style="background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 18%, transparent), transparent);"></div>
+
+    <div class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 bg-[color-mix(in_srgb,var(--accent)_18%,transparent)] blur-3xl z-0"></div>
 
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/40 z-[1]"></div>
-
-    <svg
-      viewBox="0 0 1440 320"
-      preserveAspectRatio="none"
-      class="pointer-events-none absolute top-0 left-0 w-full h-96 z-[2]"
-      style={`color: ${waveFill};`}
-    >
-      <path
-        fill="currentColor"
-        d="M0,220 C240,140 480,300 720,220 C960,140 1200,300 1440,220 L1440,0 L0,0 Z"
-      />
-    </svg>
 
     <div class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 blur-3xl z-0" style={`background-color: ${glowColor};`}></div>
 
@@ -124,8 +131,8 @@ const nonInclus = [
 
       <!-- WHAT IT IS -->
       <section class="grid md:grid-cols-2 gap-12">
-        <div class="space-y-4 text-slate-300 leading-relaxed">
-          <h3 class="text-2xl font-semibold text-slate-100">
+        <div class="space-y-4 text-[color-mix(in_srgb,var(--text)_78%,transparent)] leading-relaxed">
+          <h3 class="text-2xl font-semibold text-[var(--text)]">
             À quoi sert le service conseil?
           </h3>
           <p>
@@ -134,7 +141,7 @@ const nonInclus = [
             avec une portée claire.
           </p>
 
-          <ul class="list-disc ml-6 space-y-2 text-slate-300 text-base">
+          <ul class="list-disc ml-6 space-y-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-base">
             <li>Analyse et validation de soumissions</li>
             <li>Consultations (Teams/SharePoint/Microsoft 365, cybersécurité, sauvegarde)</li>
             <li>Recommandations neutres, orientées “meilleures pratiques”</li>
@@ -143,27 +150,27 @@ const nonInclus = [
         </div>
 
         <div class="grid gap-6">
-          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <div class="text-2xl">🧠</div>
             <div>
-              <p class="text-slate-200 font-semibold">Conseil neutre</p>
-              <p class="text-slate-400 text-sm">On clarifie les options, les risques et la portée.</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)] font-semibold">Conseil neutre</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-sm">On clarifie les options, les risques et la portée.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <div class="text-2xl">📑</div>
             <div>
-              <p class="text-slate-200 font-semibold">Validation de soumissions</p>
-              <p class="text-slate-400 text-sm">On compare et on vous aide à poser les bonnes questions.</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)] font-semibold">Validation de soumissions</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-sm">On compare et on vous aide à poser les bonnes questions.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <div class="text-2xl">🛡️</div>
             <div>
-              <p class="text-slate-200 font-semibold">Réduction des risques</p>
-              <p class="text-slate-400 text-sm">Priorités sécurité et “quick wins” réalistes.</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)] font-semibold">Réduction des risques</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-sm">Priorités sécurité et “quick wins” réalistes.</p>
             </div>
           </div>
         </div>
@@ -171,61 +178,61 @@ const nonInclus = [
 
       <!-- INCLUDED -->
       <section class="space-y-6">
-        <h3 class="text-2xl font-semibold text-slate-100">
+        <h3 class="text-2xl font-semibold text-[var(--text)]">
           Ce qui est inclus
         </h3>
 
         <div class="grid md:grid-cols-3 gap-6">
           {inclus.map((x) => (
-            <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-              <h4 class="font-semibold text-lg mb-2 text-sky-300">{x.title}</h4>
-              <p class="text-slate-300 text-sm">{x.desc}</p>
+            <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+              <h4 class="font-semibold text-lg mb-2 text-[var(--accent)]">{x.title}</h4>
+              <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">{x.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       <!-- NOT INCLUDED -->
-      <section class="rounded-2xl bg-slate-800/50 p-8 border border-slate-700">
+      <section class="rounded-2xl bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] p-8 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
         <h3 class="text-xl font-semibold mb-3 text-rose-200">
           Ce qui n’est pas inclus (important)
         </h3>
-        <p class="text-slate-300 mb-4">
-          Le service conseil vise la <span class="text-slate-100 font-semibold">consultation</span> et la
-          <span class="text-slate-100 font-semibold"> validation</span>. Il ne comprend pas d’interventions techniques.
+        <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] mb-4">
+          Le service conseil vise la <span class="text-[var(--text)] font-semibold">consultation</span> et la
+          <span class="text-[var(--text)] font-semibold"> validation</span>. Il ne comprend pas d’interventions techniques.
         </p>
-        <ul class="list-disc ml-6 space-y-2 text-slate-300 text-sm">
+        <ul class="list-disc ml-6 space-y-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
           {nonInclus.map((item) => <li>{item}</li>)}
         </ul>
       </section>
 
       <!-- HOW IT WORKS -->
       <section class="space-y-6">
-        <h3 class="text-2xl font-semibold text-slate-100">
+        <h3 class="text-2xl font-semibold text-[var(--text)]">
           Comment ça fonctionne
         </h3>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <div class="text-slate-400 text-xs uppercase tracking-[0.25em]">Étape 1</div>
-            <h4 class="mt-2 font-semibold text-lg text-slate-100">Demande</h4>
-            <p class="mt-2 text-slate-300 text-sm">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <div class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-xs uppercase tracking-[0.25em]">Étape 1</div>
+            <h4 class="mt-2 font-semibold text-lg text-[var(--text)]">Demande</h4>
+            <p class="mt-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
               Vous décrivez le besoin (soumission à vérifier, choix technologique, question sécurité, etc.).
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <div class="text-slate-400 text-xs uppercase tracking-[0.25em]">Étape 2</div>
-            <h4 class="mt-2 font-semibold text-lg text-slate-100">Consultation</h4>
-            <p class="mt-2 text-slate-300 text-sm">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <div class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-xs uppercase tracking-[0.25em]">Étape 2</div>
+            <h4 class="mt-2 font-semibold text-lg text-[var(--text)]">Consultation</h4>
+            <p class="mt-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
               Rencontre courte (Teams) + collecte des infos nécessaires (docs, devis, contexte).
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <div class="text-slate-400 text-xs uppercase tracking-[0.25em]">Étape 3</div>
-            <h4 class="mt-2 font-semibold text-lg text-slate-100">Recommandations</h4>
-            <p class="mt-2 text-slate-300 text-sm">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <div class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-xs uppercase tracking-[0.25em]">Étape 3</div>
+            <h4 class="mt-2 font-semibold text-lg text-[var(--text)]">Recommandations</h4>
+            <p class="mt-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
               Retour clair : points à valider, risques, questions au fournisseur, prochaines étapes.
             </p>
           </div>
@@ -260,7 +267,7 @@ const nonInclus = [
           >
             <form
               id="consultForm"
-              class="space-y-4 bg-white/10 backdrop-blur p-6 rounded-xl border border-white/20"
+              class="space-y-4 bg-white/10 backdrop-blur p-6 rounded-xl border border-[color-mix(in_srgb,var(--border)_75%,transparent)]"
             >
               <h4 class="text-xl font-semibold mb-2">Demande – Service conseil TI</h4>
 
@@ -335,7 +342,7 @@ const nonInclus = [
                 placeholder="Décrivez votre besoin (ex : soumission à comparer, contexte, échéancier, risques, questions)."
               ></textarea>
 
-              <div class="rounded-lg bg-white/10 border border-white/20 p-4 text-sm">
+              <div class="rounded-lg bg-white/10 border border-[color-mix(in_srgb,var(--border)_75%,transparent)] p-4 text-sm">
                 <p class="font-semibold">Important</p>
                 <p class="opacity-90">
                   Cette demande concerne un service conseil (consultation, validation, recommandations).
@@ -357,7 +364,7 @@ const nonInclus = [
                 type="button"
                 id="closeFormBtn"
                 class="mt-2 w-full px-4 py-2 bg-white/10 text-white rounded-lg font-medium
-                       border border-white/20 hover:bg-white/20 transition"
+                       border border-[color-mix(in_srgb,var(--border)_75%,transparent)] hover:bg-white/20 transition"
               >
                 Fermer
               </button>
@@ -370,6 +377,7 @@ const nonInclus = [
 
     </div>
   </section>
+  </div>
 </SiteLayout>
 
 <script>

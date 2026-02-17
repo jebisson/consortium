@@ -1,17 +1,32 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import "../styles/global.css";
-import logo from "../assets/eesad-logo.png";
+import logo from "../assets/consortium.png";
 import { theme } from "../config/theme.js";
 
-const { bandBackground, waveFill, glowColor } = theme.colors;
+const { background, text, accent, border, bandBackground } = theme.colors;
 ---
 
 <SiteLayout title="Sauvegarde Cloud Microsoft 365 – EÉSAD">
-  <!-- HEADER SLOT -->
+
+  <div style={`--bg: ${background}; --text: ${text}; --accent: ${accent}; --border: ${border}; --band: ${bandBackground}; `}>
+  
+    <style>
+      /* Surfaces noires (comme index) */
+      .card-surface { background: rgb(18,18,18); border: 1px solid rgba(0,0,0,0.16); box-shadow: 0 14px 40px rgba(0,0,0,0.18); }
+      .card-icon { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); }
+      .hover-tint { background: radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 62%); }
+      .muted-on-dark { color: color-mix(in srgb, white 70%, transparent); }
+      .soft-on-dark  { color: color-mix(in srgb, white 82%, transparent); }
+      .band-title { color: rgba(17,17,17,0.92); }
+      .band-soft  { color: rgba(17,17,17,0.75); }
+      .band-muted { color: rgba(17,17,17,0.62); }
+      .focus-ring:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+    </style>
+<!-- HEADER SLOT -->
   <div slot="header" class="relative mx-auto flex flex-col items-center gap-3 z-10">
-    <img src={logo.src} alt="EÉSAD" class="h-20 w-auto" />
-    <h1 class="text-sm tracking-[0.25em] text-slate-400 uppercase">
+    <img src={logo.src} alt="EÉSAD" class="h-32 w-auto" />
+    <h1 class="text-sm tracking-[0.25em] text-[color-mix(in_srgb,var(--text)_55%,transparent)] uppercase">
       Sauvegarde Cloud Microsoft 365
     </h1>
   </div>
@@ -26,28 +41,28 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
              blur-[75px] opacity-90"
     ></div>
 
-    <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-slate-100">
+    <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-[var(--text)]">
       Une vraie sauvegarde pour Microsoft 365.
-      <span class="block text-slate-300 font-medium mt-2 text-2xl md:text-3xl">
+      <span class="block text-[color-mix(in_srgb,var(--text)_78%,transparent)] font-medium mt-2 text-2xl md:text-3xl">
         Récupérez vos données en minutes — même après un incident.
       </span>
     </h2>
 
-    <p class="mt-5 text-lg md:text-xl text-slate-300 leading-relaxed">
+    <p class="mt-5 text-lg md:text-xl text-[color-mix(in_srgb,var(--text)_78%,transparent)] leading-relaxed">
       Courriels (Exchange), OneDrive, SharePoint et Teams —
-      protégés par une solution de sauvegarde <span class="text-slate-100 font-semibold">indépendante</span>,
+      protégés par une solution de sauvegarde <span class="text-[var(--text)] font-semibold">indépendante</span>,
       fiable et hébergée au Canada.
     </p>
 
     <!-- Quick value pills -->
     <div class="mt-6 flex flex-wrap justify-center gap-3">
-      <div class="px-4 py-2 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-200 text-sm">
+      <div class="px-4 py-2 rounded-xl bg-slate-800/60 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm">
         ✅ Restauration granulaire (fichier, dossier, courriel)
       </div>
-      <div class="px-4 py-2 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-200 text-sm">
+      <div class="px-4 py-2 rounded-xl bg-slate-800/60 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm">
         ✅ Protection contre ransomware & erreurs humaines
       </div>
-      <div class="px-4 py-2 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-200 text-sm">
+      <div class="px-4 py-2 rounded-xl bg-slate-800/60 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm">
         ✅ Données hébergées au Canada
       </div>
     </div>
@@ -64,14 +79,14 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       <a
         href="#pourquoi"
         class="inline-block px-7 py-3 rounded-xl font-semibold
-               bg-slate-900/40 border border-slate-700 text-slate-200
-               hover:bg-slate-800/50 hover:border-slate-600 transition"
+               bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/40 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)]
+               hover:bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] hover:border-slate-600 transition"
       >
         Voir pourquoi c’est essentiel
       </a>
     </div>
 
-    <p class="mt-4 text-sm text-slate-400">
+    <p class="mt-4 text-sm text-[color-mix(in_srgb,var(--text)_55%,transparent)]">
       Installation incluse • Support EÉSAD • Engagement 36 mois
     </p>
   </section>
@@ -81,8 +96,8 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
     href="/"
     class="fixed right-6 top-5 z-50
            inline-flex items-center px-4 py-2 rounded-lg
-           bg-slate-800/80 border border-slate-700 
-           text-slate-200 text-sm font-medium
+           bg-slate-800/80 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] 
+           text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm font-medium
            hover:bg-slate-700 hover:border-sky-400 hover:text-sky-100
            shadow-lg backdrop-blur
            transition-all"
@@ -93,39 +108,13 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
   <!-- WAVE + CONTENT BAND -->
   <section
     class="relative w-full overflow-hidden -mt-20"
-    style={`background-color: ${bandBackground};`}
+    style="background: var(--band);"
   >
-    <!-- Under-wave lighting -->
-    <div
-      class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-44 
-             bg-blue-500/10 blur-3xl z-0"
-    ></div>
-
-    <!-- Gradient overlay -->
-    <div
-      class="absolute inset-0 bg-gradient-to-b 
-             from-transparent to-slate-950/45
-             z-[1]"
-    ></div>
+      <!-- LIGNE OR + FADE (comme index) -->
+      <div class="h-[2px] w-full" style="background: var(--accent);"></div>
+      <div class="h-14 w-full" style="background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 18%, transparent), transparent);"></div>
 
     <!-- WAVE -->
-    <svg
-      viewBox="0 0 1440 320"
-      preserveAspectRatio="none"
-      class="pointer-events-none absolute top-0 left-0 w-full h-96 z-[2]"
-      style={`color: ${waveFill};`}
-    >
-      <path
-        fill="currentColor"
-        d="
-          M0,220
-          C240,140 480,300 720,220
-          C960,140 1200,300 1440,220
-          L1440,0 L0,0 Z
-        "
-      />
-    </svg>
-
     <!-- Extra glow behind content -->
     <div
       class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-44 blur-3xl z-0"
@@ -136,13 +125,13 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
     <div class="relative z-[3] mx-auto max-w-6xl px-4 pb-20 space-y-12 mt-24">
       <!-- SECTION TITLE -->
       <div id="pourquoi" class="text-center">
-        <h3 class="text-slate-400 text-xs uppercase tracking-[0.25em]">
+        <h3 class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-xs uppercase tracking-[0.25em]">
           Pourquoi une sauvegarde indépendante?
         </h3>
-        <p class="mt-4 text-2xl md:text-3xl font-semibold text-slate-100">
+        <p class="mt-4 text-2xl md:text-3xl font-semibold text-[var(--text)]">
           Parce que Microsoft 365 n’est pas une stratégie de restauration.
         </p>
-        <!--<p class="mt-3 text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        <!--<p class="mt-3 text-[color-mix(in_srgb,var(--text)_78%,transparent)] max-w-3xl mx-auto leading-relaxed">
           Microsoft offre des outils de rétention et de récupération, mais ils ont des limites.
           Une vraie sauvegarde vous donne une copie indépendante et une restauration rapide,
           même après une erreur, une suppression, une corruption ou une attaque.
@@ -155,19 +144,19 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
         <div class="space-y-6">
           <div
             class="p-6 rounded-2xl bg-gradient-to-br from-slate-800/70 to-slate-900/70
-                   border border-slate-700 shadow-lg"
+                   border border-[color-mix(in_srgb,var(--border)_65%,transparent)] shadow-lg"
           >
-            <p class="text-slate-100 text-xl leading-relaxed font-semibold">
+            <p class="text-[var(--text)] text-xl leading-relaxed font-semibold">
               Microsoft 365 protège vos services…
               <span class="text-blue-300">mais ce n’est pas une sauvegarde.</span>
             </p>
-            <p class="mt-3 text-slate-300 text-base leading-relaxed">
-              Quand ça arrive, vous voulez une seule chose : <span class="text-slate-100 font-semibold">récupérer vite</span>,
+            <p class="mt-3 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-base leading-relaxed">
+              Quand ça arrive, vous voulez une seule chose : <span class="text-[var(--text)] font-semibold">récupérer vite</span>,
               sans stress, sans perte, sans dépendre d’une “chance” de récupération.
             </p>
             <div
               class="mt-4 inline-flex items-center gap-2 px-3 py-2 rounded-xl
-                     bg-slate-800/70 border border-slate-700 text-slate-200 text-sm"
+                     bg-slate-800/70 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm"
             >
               <span class="text-blue-400">✅</span>
               Restauration granulaire, rapide et indépendante
@@ -175,43 +164,43 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
           </div>
 
           <div class="grid sm:grid-cols-2 gap-4">
-            <div class="flex gap-3 p-4 rounded-xl bg-slate-800/50 border border-slate-700">
+            <div class="flex gap-3 p-4 rounded-xl bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
               <span class="text-blue-400 text-xl">🗑️</span>
               <div>
-                <p class="text-slate-100 font-semibold">Suppression accidentelle</p>
-                <p class="text-slate-300 text-sm">Fichiers, courriels, dossiers supprimés trop vite.</p>
+                <p class="text-[var(--text)] font-semibold">Suppression accidentelle</p>
+                <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Fichiers, courriels, dossiers supprimés trop vite.</p>
               </div>
             </div>
 
-            <div class="flex gap-3 p-4 rounded-xl bg-slate-800/50 border border-slate-700">
+            <div class="flex gap-3 p-4 rounded-xl bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
               <span class="text-red-400 text-xl">🦠</span>
               <div>
-                <p class="text-slate-100 font-semibold">Ransomware & compromission</p>
-                <p class="text-slate-300 text-sm">OneDrive / SharePoint / Exchange sont des cibles.</p>
+                <p class="text-[var(--text)] font-semibold">Ransomware & compromission</p>
+                <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">OneDrive / SharePoint / Exchange sont des cibles.</p>
               </div>
             </div>
 
-            <div class="flex gap-3 p-4 rounded-xl bg-slate-800/50 border border-slate-700">
+            <div class="flex gap-3 p-4 rounded-xl bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
               <span class="text-purple-400 text-xl">📄</span>
               <div>
-                <p class="text-slate-100 font-semibold">Fichiers corrompus</p>
-                <p class="text-slate-300 text-sm">Altération silencieuse, sync, mauvaises versions.</p>
+                <p class="text-[var(--text)] font-semibold">Fichiers corrompus</p>
+                <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Altération silencieuse, sync, mauvaises versions.</p>
               </div>
             </div>
 
-            <div class="flex gap-3 p-4 rounded-xl bg-slate-800/50 border border-slate-700">
+            <div class="flex gap-3 p-4 rounded-xl bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
               <span class="text-indigo-400 text-xl">⏱️</span>
               <div>
-                <p class="text-slate-100 font-semibold">Récupération limitée</p>
-                <p class="text-slate-300 text-sm">Rétention, délais, politiques: pas illimité.</p>
+                <p class="text-[var(--text)] font-semibold">Récupération limitée</p>
+                <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Rétention, délais, politiques: pas illimité.</p>
               </div>
             </div>
 
-            <div class="flex gap-3 p-4 rounded-xl bg-slate-800/50 border border-slate-700 sm:col-span-2">
+            <div class="flex gap-3 p-4 rounded-xl bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)] sm:col-span-2">
               <span class="text-yellow-400 text-xl">👤</span>
               <div>
-                <p class="text-slate-100 font-semibold">Départ d’employés</p>
-                <p class="text-slate-300 text-sm">Comptes supprimés = courriels & fichiers perdus.</p>
+                <p class="text-[var(--text)] font-semibold">Départ d’employés</p>
+                <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Comptes supprimés = courriels & fichiers perdus.</p>
               </div>
             </div>
           </div>
@@ -228,29 +217,29 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
         <!-- Right: proof / benefits cards -->
         <div class="grid grid-cols-1 gap-6">
           <div
-            class="p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700"
+            class="p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]"
           >
-            <p class="text-slate-100 text-lg font-semibold">Ce que vous gagnez</p>
-            <p class="mt-2 text-slate-300 leading-relaxed">
+            <p class="text-[var(--text)] text-lg font-semibold">Ce que vous gagnez</p>
+            <p class="mt-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] leading-relaxed">
               Une assurance opérationnelle : retrouver rapidement ce qui compte, sans pertes ni interruptions prolongées.
             </p>
 
             <div class="mt-4 space-y-3">
               <div class="flex items-start gap-3">
                 <span class="text-blue-400 text-lg">⚡</span>
-                <p class="text-slate-200">
+                <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)]">
                   <span class="font-semibold">Restauration en minutes</span> (courriel, fichier, dossier, bibliothèque)
                 </p>
               </div>
               <div class="flex items-start gap-3">
                 <span class="text-indigo-400 text-lg">🧩</span>
-                <p class="text-slate-200">
+                <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)]">
                   <span class="font-semibold">Granulaire</span> : pas besoin de tout restaurer pour récupérer un élément
                 </p>
               </div>
               <div class="flex items-start gap-3">
                 <span class="text-purple-400 text-lg">🛡️</span>
-                <p class="text-slate-200">
+                <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)]">
                   <span class="font-semibold">Indépendante</span> : votre copie reste accessible même après incident
                 </p>
               </div>
@@ -259,7 +248,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
           <div
             class="flex items-start gap-4 p-6 rounded-2xl
-                   bg-slate-800/40 backdrop-blur border border-slate-700"
+                   bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]"
           >
             <!-- Shield Check -->
             <svg
@@ -276,8 +265,8 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
               />
             </svg>
             <div>
-              <p class="text-slate-100 text-lg font-semibold">Protection contre les incidents modernes</p>
-              <p class="text-slate-300 mt-1 leading-relaxed">
+              <p class="text-[var(--text)] text-lg font-semibold">Protection contre les incidents modernes</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] mt-1 leading-relaxed">
                 La sauvegarde est votre plan de reprise : simple, rapide, et conçu pour récupérer même quand tout va mal.
               </p>
             </div>
@@ -285,7 +274,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
           <div
             class="flex items-start gap-4 p-6 rounded-2xl
-                   bg-slate-800/40 backdrop-blur border border-slate-700"
+                   bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]"
           >
             <!-- Document-text -->
             <svg
@@ -302,8 +291,8 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
               />
             </svg>
             <div>
-              <p class="text-slate-100 text-lg font-semibold">Restauration “sans casse-tête”</p>
-              <p class="text-slate-300 mt-1 leading-relaxed">
+              <p class="text-[var(--text)] text-lg font-semibold">Restauration “sans casse-tête”</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] mt-1 leading-relaxed">
                 Retrouver un mail, un document ou une version précise — rapidement — sans perturber le reste.
               </p>
             </div>
@@ -312,29 +301,29 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       </section>
 
       <!-- HOW IT WORKS -->
-      <section class="rounded-2xl bg-slate-800/35 p-8 border border-slate-700">
-        <h4 class="text-2xl font-semibold text-slate-100 mb-6">
+      <section class="rounded-2xl bg-slate-800/35 p-8 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+        <h4 class="text-2xl font-semibold text-[var(--text)] mb-6">
           Comment ça fonctionne
         </h4>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl p-6 bg-slate-900/30 border border-slate-700">
-            <p class="text-slate-100 font-semibold text-lg">1) Connexion</p>
-            <p class="text-slate-300 mt-2 text-sm leading-relaxed">
+          <div class="rounded-2xl p-6 bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/30 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold text-lg">1) Connexion</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] mt-2 text-sm leading-relaxed">
               On connecte la solution à votre tenant Microsoft 365 (accès sécurisé, configuration guidée).
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-900/30 border border-slate-700">
-            <p class="text-slate-100 font-semibold text-lg">2) Sauvegardes automatiques</p>
-            <p class="text-slate-300 mt-2 text-sm leading-relaxed">
+          <div class="rounded-2xl p-6 bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/30 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold text-lg">2) Sauvegardes automatiques</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] mt-2 text-sm leading-relaxed">
               Des sauvegardes régulières protègent Exchange, OneDrive, SharePoint et Teams.
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-900/30 border border-slate-700">
-            <p class="text-slate-100 font-semibold text-lg">3) Restauration à la demande</p>
-            <p class="text-slate-300 mt-2 text-sm leading-relaxed">
+          <div class="rounded-2xl p-6 bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/30 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold text-lg">3) Restauration à la demande</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] mt-2 text-sm leading-relaxed">
               Besoin de récupérer? On restaure rapidement (fichier, mail, dossier, etc.).
             </p>
           </div>
@@ -342,7 +331,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       </section>
 
       <!-- LOI 25 -->
-      <section class="rounded-2xl bg-slate-800/50 p-8 border border-slate-700">
+      <section class="rounded-2xl bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] p-8 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
         <div class="flex items-start gap-4">
           <svg
             class="w-12 h-12 text-blue-400 flex-shrink-0"
@@ -362,7 +351,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             <h4 class="text-xl font-semibold mb-2 text-blue-300">
               Conformité & continuité (Loi 25)
             </h4>
-            <p class="leading-relaxed text-slate-300">
+            <p class="leading-relaxed text-[color-mix(in_srgb,var(--text)_78%,transparent)]">
               La Loi 25 renforce les obligations de protection des renseignements personnels.
               Une sauvegarde indépendante aide à assurer la continuité et la restauration
               après un incident, tout en réduisant l’impact opérationnel.
@@ -373,12 +362,12 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
       <!-- FEATURES GRID -->
       <section>
-        <h4 class="text-2xl font-semibold text-slate-100 mb-6">
+        <h4 class="text-2xl font-semibold text-[var(--text)] mb-6">
           Ce qui est inclus
         </h4>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <svg
               class="w-12 h-12 text-blue-400 mb-3"
               fill="none"
@@ -395,12 +384,12 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             <h5 class="font-semibold text-lg mb-2 text-blue-300">
               Sauvegarde automatique
             </h5>
-            <p class="text-slate-300 text-sm">
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
               Exchange, OneDrive, SharePoint et Teams protégés sans intervention.
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <svg
               class="w-12 h-12 text-indigo-400 mb-3"
               fill="none"
@@ -414,15 +403,15 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
                 d="M16.5 9.75l-4.5 4.5-4.5-4.5"
               />
             </svg>
-            <h5 class="font-semibold text-lg mb-2 text-indigo-300">
+            <h5 class="font-semibold text-lg mb-2 text-[color-mix(in_srgb,var(--accent)_80%,white_20%)]">
               Restauration rapide
             </h5>
-            <p class="text-slate-300 text-sm">
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
               Récupération granulaire : fichier, courriel, dossier ou bibliothèque.
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <svg
               class="w-12 h-12 text-purple-400 mb-3"
               fill="none"
@@ -439,7 +428,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             <h5 class="font-semibold text-lg mb-2 text-purple-300">
               Hébergement au Canada
             </h5>
-            <p class="text-slate-300 text-sm">
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
               Une approche alignée avec les besoins de confidentialité et de conformité.
             </p>
           </div>
@@ -447,62 +436,62 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       </section>
 
       <!-- WHY DATTO -->
-      <section class="rounded-2xl p-8 bg-slate-800/35 border border-slate-700">
-        <h4 class="text-2xl font-semibold text-slate-100 mb-3">
+      <section class="rounded-2xl p-8 bg-slate-800/35 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+        <h4 class="text-2xl font-semibold text-[var(--text)] mb-3">
           Pourquoi Datto
         </h4>
-        <p class="leading-relaxed text-slate-300">
+        <p class="leading-relaxed text-[color-mix(in_srgb,var(--text)_78%,transparent)]">
           Datto est une plateforme reconnue pour la robustesse de ses sauvegardes
           et la qualité de ses restaurations. Avec les services TI des EÉSAD, vous obtenez une implantation
           guidée, un accompagnement humain, et une solution simple à opérer au quotidien.
         </p>
 
         <div class="mt-6 grid md:grid-cols-2 gap-4">
-          <div class="p-5 rounded-2xl bg-slate-900/25 border border-slate-700">
-            <p class="text-slate-100 font-semibold">✅ Implantation incluse</p>
-            <p class="text-slate-300 text-sm mt-1">Configuration initiale et validation de la sauvegarde.</p>
+          <div class="p-5 rounded-2xl bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/25 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold">✅ Implantation incluse</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm mt-1">Configuration initiale et validation de la sauvegarde.</p>
           </div>
-          <div class="p-5 rounded-2xl bg-slate-900/25 border border-slate-700">
-            <p class="text-slate-100 font-semibold">✅ Support & accompagnement</p>
-            <p class="text-slate-300 text-sm mt-1">Vous n’êtes pas seul lors d’un incident.</p>
+          <div class="p-5 rounded-2xl bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/25 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold">✅ Support & accompagnement</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm mt-1">Vous n’êtes pas seul lors d’un incident.</p>
           </div>
         </div>
       </section>
 
       <!-- FAQ -->
       <section class="space-y-4">
-        <h4 class="text-2xl font-semibold text-slate-100">
+        <h4 class="text-2xl font-semibold text-[var(--text)]">
           Questions fréquentes
         </h4>
 
         <div class="grid md:grid-cols-2 gap-6">
-          <div class="rounded-2xl p-6 bg-slate-800/40 border border-slate-700">
-            <p class="text-slate-100 font-semibold">“On a déjà OneDrive / SharePoint, c’est sécurisé non?”</p>
-            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+          <div class="rounded-2xl p-6 bg-slate-800/40 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold">“On a déjà OneDrive / SharePoint, c’est sécurisé non?”</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm mt-2 leading-relaxed">
               Sécurisé ≠ sauvegardé. La sync propage aussi les erreurs (suppression, corruption).
               La sauvegarde indépendante sert à revenir en arrière rapidement.
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-800/40 border border-slate-700">
-            <p class="text-slate-100 font-semibold">“Est-ce que ça protège Teams?”</p>
-            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+          <div class="rounded-2xl p-6 bg-slate-800/40 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold">“Est-ce que ça protège Teams?”</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm mt-2 leading-relaxed">
               Oui : les données sous-jacentes (SharePoint/OneDrive/Exchange) qui alimentent Teams
               sont incluses dans la protection.
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-800/40 border border-slate-700">
-            <p class="text-slate-100 font-semibold">“Combien de temps pour restaurer?”</p>
-            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+          <div class="rounded-2xl p-6 bg-slate-800/40 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold">“Combien de temps pour restaurer?”</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm mt-2 leading-relaxed">
               Ça dépend du volume, mais l’objectif est la restauration rapide et granulaire
               (souvent minutes plutôt qu’heures/jours).
             </p>
           </div>
 
-          <div class="rounded-2xl p-6 bg-slate-800/40 border border-slate-700">
-            <p class="text-slate-100 font-semibold">“Pourquoi hébergement au Canada?”</p>
-            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+          <div class="rounded-2xl p-6 bg-slate-800/40 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <p class="text-[var(--text)] font-semibold">“Pourquoi hébergement au Canada?”</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm mt-2 leading-relaxed">
               Pour mieux répondre aux attentes de confidentialité et aux réalités de conformité
               (notamment au Québec).
             </p>
@@ -545,7 +534,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             <a
               href="/"
               class="inline-flex justify-center items-center mt-2 px-8 py-3 rounded-xl font-semibold
-                     bg-white/10 border border-white/20 text-white
+                     bg-white/10 border border-[color-mix(in_srgb,var(--border)_75%,transparent)] text-white
                      hover:bg-white/20 transition"
             >
               Parler à un conseiller
@@ -559,7 +548,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
           >
             <form
               id="activationForm"
-              class="space-y-4 bg-white/10 backdrop-blur p-6 rounded-xl border border-white/20"
+              class="space-y-4 bg-white/10 backdrop-blur p-6 rounded-xl border border-[color-mix(in_srgb,var(--border)_75%,transparent)]"
             >
               <h5 class="text-xl font-semibold mb-2">
                 Demande d’activation
@@ -610,7 +599,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
                 type="button"
                 id="closeFormBtn"
                 class="mt-2 w-full px-4 py-2 bg-white/10 text-white rounded-lg font-medium
-                       border border-white/20 hover:bg-white/20 transition"
+                       border border-[color-mix(in_srgb,var(--border)_75%,transparent)] hover:bg-white/20 transition"
               >
                 Fermer
               </button>
@@ -622,6 +611,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       </section>
     </div>
   </section>
+  </div>
 </SiteLayout>
 
 <script>

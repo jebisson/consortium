@@ -1,15 +1,23 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import "../styles/global.css";
-import logo from "../assets/eesad-logo.png";
+import logo from "../assets/consortium.png";
 import { theme } from "../config/theme.js";
 
-const { bandBackground, waveFill, glowColor } = theme.colors;
+// Safe theme destructuring (no undefined crash)
+const colors = theme?.colors ?? {};
+const background = colors.background ?? "rgb(18,18,18)";
+const text = colors.text ?? "#FFFFFF";
+const accent = colors.accent ?? "#D4A017";
+const border = colors.border ?? "rgba(255,255,255,0.10)";
+const bandBackground = colors.bandBackground ?? "rgb(245,245,245)";
 
-const offres = [
+// Content (edit as you want)
+const offers = [
   {
     title: "Intégration des nouveaux employés",
-    desc: "Accueil TI, configuration de poste, accès Microsoft 365, bonnes pratiques et première semaine sans friction.",
+    desc:
+      "Accueil TI, configuration de poste, accès Microsoft 365, bonnes pratiques et première semaine sans friction.",
     bullets: [
       "Checklist d’arrivée (comptes, licences, accès, groupes)",
       "Configuration M365 (Outlook/Teams/OneDrive) et appareil",
@@ -40,346 +48,197 @@ const offres = [
 ];
 
 const formats = [
-  { t: "Session express", d: "30 à 60 minutes (ciblée sur un outil ou un besoin)" },
-  { t: "Atelier équipe", d: "60 à 90 minutes (avec questions et cas réels)" },
-  { t: "Parcours onboarding", d: "Séquence sur 1–2 semaines pour nouveaux employés" },
-  { t: "Capsules / guides", d: "Mini guides PDF + procédures adaptées à votre contexte" },
-];
-
-const inclus = [
-  "Matériel de formation (supports, checklist, mini guides)",
-  "Adaptation au contexte (structure Teams/SharePoint, rôles, réalité terrain)",
-  "Période de questions/réponses",
-  "Recommandations d’amélioration (quick wins) après la session",
-];
-
-const nonInclus = [
-  "Interventions techniques majeures (projets, migrations) — sur soumission",
-  "Support 24/7 (sauf entente)",
-  "Déplacements (si requis : sur entente)",
+  { title: "Session express", desc: "30 à 60 minutes (ciblée sur un outil ou un besoin)" },
+  { title: "Atelier équipe", desc: "60 à 90 minutes (avec questions et cas réels)" },
+  { title: "Parcours onboarding", desc: "Séquence sur 1–2 semaines pour nouveaux employés" },
+  { title: "Capsules / guides", desc: "Mini guides PDF + procédures adaptées à votre contexte" },
 ];
 ---
 
-<SiteLayout title="Formations & intégration – Services TI">
-
-  <!-- HEADER SLOT -->
-  <div slot="header" class="relative mx-auto flex flex-col items-center gap-3 z-10">
-    <img src={logo.src} alt="EÉSAD" class="h-20 w-auto" />
-    <h1 class="text-sm tracking-[0.25em] text-slate-400 uppercase">
-      Formations & intégration
-    </h1>
-  </div>
-
-  <!-- HERO SLOT -->
-  <section slot="hero" class="mx-auto max-w-4xl px-4 text-center relative z-10">
-    <div
-      class="absolute left-1/2 top-10 -translate-x-1/2
-             w-[70%] md:w-[60%] h-24
-             bg-gradient-to-r from-sky-500/25 via-indigo-500/25 to-purple-500/25
-             blur-[70px] opacity-80"
-    ></div>
-
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-100">
-      Accueillir, former et rendre autonome rapidement
-    </h2>
-
-    <p class="mt-4 text-lg text-slate-300">
-      On aide vos nouveaux employés à démarrer du bon pied et vos équipes à mieux utiliser
-      Microsoft 365 — avec des formations courtes, claires et adaptées à votre réalité.
-    </p>
-
-    <!--<div class="mt-6 flex flex-wrap justify-center gap-3">
-      <a
-        href="#demande"
-        class="inline-flex items-center px-6 py-3 rounded-xl font-semibold
-               bg-gradient-to-r from-sky-400 to-indigo-400
-               text-slate-900 hover:brightness-110 transition"
-      >
-        Demander une formation →
-      </a>
-
-      <a
-        href="#offres"
-        class="inline-flex items-center px-6 py-3 rounded-xl font-semibold
-               bg-slate-800/60 border border-slate-700 text-slate-200
-               hover:bg-slate-700 hover:border-sky-400 transition"
-      >
-        Voir les offres
-      </a>
-    </div> -->
-
-    <div class="mt-8 flex flex-wrap gap-2 justify-center">
-      <span class="px-4 py-2 rounded-full text-sm bg-slate-800/50 border border-slate-700 text-slate-200">
-        Nouveaux employés
-      </span>
-      <span class="px-4 py-2 rounded-full text-sm bg-slate-800/50 border border-slate-700 text-slate-200">
-        Microsoft 365
-      </span>
-      <span class="px-4 py-2 rounded-full text-sm bg-slate-800/50 border border-slate-700 text-slate-200">
-        Cybersécurité
-      </span>
-    </div>
-  </section>
-
-  <!-- FIXED BACK LINK -->
-  <a
-    href="/"
-    class="fixed right-6 top-5 z-50
-           inline-flex items-center px-4 py-2 rounded-lg
-           bg-slate-800/80 border border-slate-700
-           text-slate-200 text-sm font-medium
-           hover:bg-slate-700 hover:border-sky-400 hover:text-sky-100
-           shadow-lg backdrop-blur
-           transition-all"
+<SiteLayout title="Formations & intégration – Consortium">
+  <div
+    style={`--bg:${background}; --text:${text}; --accent:${accent}; --border:${border}; --band:${bandBackground};`}
   >
-    ← Retour à la page Services TI
-  </a>
+    <style>
+      /* === Same “premium index” language === */
 
-  <!-- WAVE + CONTENT BAND -->
-  <section class="relative w-full overflow-hidden -mt-20" style={`background-color: ${bandBackground};`}>
+      /* Black card surface */
+      .card {
+        background: rgb(18,18,18);
+        border: 1px solid rgba(0,0,0,0.16);
+        box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+      }
+      .card:hover { transform: translateY(-4px); }
+      .card-anim { transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease; }
 
-    <div class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 bg-sky-500/10 blur-3xl z-0"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/40 z-[1]"></div>
+      .hover-tint {
+        background: radial-gradient(
+          circle at 18% 18%,
+          color-mix(in srgb, var(--accent) 16%, transparent),
+          transparent 62%
+        );
+      }
 
-    <svg
-      viewBox="0 0 1440 320"
-      preserveAspectRatio="none"
-      class="pointer-events-none absolute top-0 left-0 w-full h-96 z-[2]"
-      style={`color: ${waveFill};`}
-      aria-hidden="true"
+      .soft { color: color-mix(in srgb, white 82%, transparent); }
+      .muted { color: color-mix(in srgb, white 70%, transparent); }
+
+      /* Pills like index */
+      .pill {
+        background: rgba(18,18,18,0.92);
+        border: 1px solid rgba(255,255,255,0.10);
+        color: rgba(255,255,255,0.90);
+      }
+
+      /* Back button */
+      .backbtn:hover {
+        border-color: color-mix(in srgb, var(--accent) 65%, transparent);
+        filter: brightness(1.06);
+      }
+
+      /* White band text */
+      .band-h { color: rgba(17,17,17,0.92); }
+      .band-p { color: rgba(17,17,17,0.74); }
+
+      /* Better bullet contrast on dark cards */
+      .bullet li { color: color-mix(in srgb, white 78%, transparent); }
+      .bullet li::marker { color: color-mix(in srgb, var(--accent) 75%, transparent); }
+    </style>
+
+    <!-- HEADER SLOT -->
+    <div slot="header" class="flex flex-col items-center">
+      <img src={logo.src} alt="Consortium" class="h-32 md:h-36 w-auto" />
+      <h1
+        class="mt-2 text-sm tracking-[0.35em] uppercase"
+        style="color: color-mix(in srgb, var(--text) 60%, transparent);"
+      >
+        Services TI
+      </h1>
+    </div>
+
+    <!-- HERO SLOT (dark + subtle glow) -->
+    <div slot="hero" class="relative mx-auto max-w-4xl px-4 text-center z-20 pt-2 pb-10">
+      <div
+        class="pointer-events-none absolute left-1/2 top-8 -translate-x-1/2 w-[70%] md:w-[55%] h-24 blur-[80px] opacity-70"
+        style="background: color-mix(in srgb, var(--accent) 18%, transparent);"
+      ></div>
+
+      <p class="mt-2 text-xs uppercase tracking-[0.35em]" style="color: color-mix(in srgb, var(--text) 55%, transparent);">
+        Formations & intégration
+      </p>
+
+      <h2 class="mt-4 text-4xl md:text-5xl font-semibold tracking-tight" style="color: var(--text);">
+        Accueillir, former et rendre autonome rapidement
+      </h2>
+
+      <p class="mt-4 text-base md:text-lg leading-relaxed soft">
+        On aide vos nouveaux employés à démarrer du bon pied et vos équipes à mieux utiliser Microsoft 365 —
+        avec des formations courtes, claires et adaptées à votre réalité.
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+        <span class="pill inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold">Nouveaux employés</span>
+        <span class="pill inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold">Microsoft 365</span>
+        <span class="pill inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold">Cybersécurité</span>
+      </div>
+    </div>
+
+    <!-- BACK LINK -->
+    <a
+      href="/"
+      class="backbtn fixed right-6 top-5 z-50 inline-flex items-center px-4 py-2 rounded-lg shadow-lg backdrop-blur transition-all"
+      style="background: rgba(18,18,18,0.85); border: 1px solid rgba(255,255,255,0.10); color: rgba(255,255,255,0.90);"
     >
-      <path fill="currentColor" d="M0,220 C240,140 480,300 720,220 C960,140 1200,300 1440,220 L1440,0 L0,0 Z" />
-    </svg>
+      ← Retour à la page Services TI
+    </a>
 
-    <div class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 blur-3xl z-0" style={`background-color: ${glowColor};`}></div>
-
-    <div class="relative z-[3] mx-auto max-w-6xl px-4 pb-20 space-y-16 mt-28">
+    <!-- BAND (white like index) -->
+    <section class="relative w-full overflow-hidden" style="background: var(--band);">
+      <!-- gold line + fade (index vibe) -->
+      <div class="h-[2px] w-full" style="background: var(--accent);"></div>
+      <div
+        class="h-14 w-full"
+        style="background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 18%, transparent), transparent);"
+      ></div>
 
       <!-- OFFERS -->
-      <section id="offres" class="space-y-6">
-        <h3 class="text-2xl font-semibold text-slate-100">
-          Offres
-        </h3>
-
-        <div class="grid md:grid-cols-3 gap-6 items-stretch">
-          {offres.map((o) => (
-            <div class="h-full rounded-2xl p-6 bg-slate-800/40 border border-slate-700 flex flex-col gap-3">
-              <h4 class="text-lg font-semibold text-sky-300">{o.title}</h4>
-              <p class="text-slate-300 text-sm">{o.desc}</p>
-              <ul class="list-disc ml-6 space-y-2 text-slate-300 text-sm">
-                {o.bullets.map((b) => <li>{b}</li>)}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- FORMATS -->
-      <section class="space-y-6">
-        <h3 class="text-2xl font-semibold text-slate-100">Formats</h3>
-
-        <div class="grid md:grid-cols-4 gap-6 items-stretch">
-          {formats.map((f) => (
-            <div class="h-full rounded-2xl p-6 bg-slate-800/40 border border-slate-700 flex flex-col gap-2">
-              <p class="text-slate-100 font-semibold">{f.t}</p>
-              <p class="text-slate-300 text-sm">{f.d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- INCLUDED / NOT INCLUDED -->
-      <section class="grid md:grid-cols-2 gap-8 items-stretch">
-        <section class="h-full rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700 p-8 flex flex-col">
-          <h4 class="text-xl font-semibold text-slate-100 mb-3">Inclus</h4>
-          <ul class="list-disc ml-6 space-y-2 text-slate-300 text-sm">
-            {inclus.map((x) => <li>{x}</li>)}
-          </ul>
-        </section>
-
-        <section class="h-full rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700 p-8 flex flex-col">
-          <h4 class="text-xl font-semibold text-slate-100 mb-3">Non inclus</h4>
-          <ul class="list-disc ml-6 space-y-2 text-slate-300 text-sm">
-            {nonInclus.map((x) => <li>{x}</li>)}
-          </ul>
-        </section>
-      </section>
-
-      <!-- CTA + FORM -->
-      <section id="demande">
-        <div class="rounded-2xl p-10 bg-gradient-to-br from-sky-600 to-indigo-600 text-white shadow-xl border border-sky-500 relative">
-          <h3 class="text-3xl font-semibold mb-3">Demander une formation / intégration</h3>
-          <p class="text-lg mb-6">
-            Décrivez votre besoin (onboarding, Teams, SharePoint, cybersécurité). On revient avec une proposition simple.
+      <div class="relative mx-auto max-w-6xl px-4 pt-0 pb-8 space-y-12">
+        <section>
+          <h3 class="text-4xl font-semibold band-h">Offres</h3>
+          <p class="mt-2 text-lg band-p">
+            Des interventions concrètes et faciles à comprendre — sans jargon inutile, avec des résultats rapides.
           </p>
 
-          <button
-            id="openTrainBtn"
-            class="inline-flex items-center px-8 py-3 rounded-xl font-semibold
-                   bg-white text-sky-700 hover:bg-slate-100 transition"
-          >
-            Ouvrir le formulaire
-          </button>
+          <div class="mt-8 grid md:grid-cols-3 gap-6 items-stretch">
+            {offers.map((o) => (
+              <div class="card card-anim group relative overflow-hidden rounded-2xl p-7">
+                <div class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover-tint"></div>
 
-          <div id="trainFormContainer" class="overflow-hidden max-h-0 opacity-0 transition-all duration-500 mt-6">
-            <form id="trainForm" class="space-y-4 bg-white/10 backdrop-blur p-6 rounded-xl border border-white/20">
+                <div class="relative">
+                  <h4 class="text-lg font-semibold" style="color: rgba(255,255,255,0.95);">
+                    <span style="color: var(--accent);">{o.title}</span>
+                  </h4>
 
-              <h4 class="text-xl font-semibold mb-2">Demande – Formations & intégration</h4>
+                  <p class="mt-3 soft leading-relaxed">{o.desc}</p>
 
-              <label class="block text-sm font-medium">Organisation</label>
-              <input
-                type="text"
-                name="train_org"
-                required
-                class="w-full rounded-lg px-3 py-2 bg-white/20 border border-white/30
-                       placeholder-white/40 text-white focus:ring-2 focus:ring-white"
-              />
-
-              <label class="block text-sm font-medium">Courriel</label>
-              <input
-                type="email"
-                name="train_email"
-                required
-                class="w-full rounded-lg px-3 py-2 bg-white/20 border border-white/30
-                       placeholder-white/40 text-white focus:ring-2 focus:ring-white"
-              />
-
-              <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm font-medium">Téléphone (optionnel)</label>
-                  <input
-                    type="text"
-                    name="train_phone"
-                    class="w-full rounded-lg px-3 py-2 bg-white/20 border border-white/30
-                           placeholder-white/40 text-white focus:ring-2 focus:ring-white"
-                  />
-                </div>
-
-                <div>
-                  <label class="block text-sm font-medium">Type</label>
-                  <select
-                    name="train_type"
-                    class="w-full rounded-lg px-3 py-2 bg-white/20 text-white border border-white/30
-                           focus:ring-2 focus:ring-white focus:outline-none"
-                  >
-                    <option class="bg-white text-slate-900" value="onboarding">Intégration nouveaux employés</option>
-                    <option class="bg-white text-slate-900" value="m365">Formation Microsoft 365</option>
-                    <option class="bg-white text-slate-900" value="security">Formation cybersécurité</option>
-                    <option class="bg-white text-slate-900" value="custom">Sur mesure</option>
-                  </select>
+                  <ul class="bullet mt-5 list-disc ml-5 space-y-2 text-sm">
+                    {o.bullets.map((b) => <li>{b}</li>)}
+                  </ul>
                 </div>
               </div>
-
-              <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm font-medium">Nombre de personnes (optionnel)</label>
-                  <input
-                    type="number"
-                    name="train_people"
-                    min="1"
-                    class="w-full rounded-lg px-3 py-2 bg-white/20 border border-white/30
-                           placeholder-white/40 text-white focus:ring-2 focus:ring-white"
-                  />
-                </div>
-
-                <div>
-                  <label class="block text-sm font-medium">Format souhaité</label>
-                  <select
-                    name="train_format"
-                    class="w-full rounded-lg px-3 py-2 bg-white/20 text-white border border-white/30
-                           focus:ring-2 focus:ring-white focus:outline-none"
-                  >
-                    <option class="bg-white text-slate-900" value="express">Session express (30–60 min)</option>
-                    <option class="bg-white text-slate-900" value="atelier">Atelier équipe (60–90 min)</option>
-                    <option class="bg-white text-slate-900" value="parcours">Parcours onboarding (1–2 semaines)</option>
-                    <option class="bg-white text-slate-900" value="capsules">Capsules / guides</option>
-                  </select>
-                </div>
-              </div>
-
-              <label class="block text-sm font-medium">Détails</label>
-              <textarea
-                name="train_details"
-                rows="5"
-                required
-                class="w-full rounded-lg px-3 py-2 bg-white/20 border border-white/30
-                       placeholder-white/40 text-white focus:ring-2 focus:ring-white"
-                placeholder="Ex : équipe 12 personnes, besoins Teams/SharePoint, onboarding de 3 nouveaux employés, etc."
-              ></textarea>
-
-              <input type="hidden" name="train_source" value="formation-integration" />
-
-              <button
-                type="submit"
-                class="mt-3 w-full px-4 py-2 bg-white text-sky-700 rounded-lg font-semibold
-                       hover:bg-slate-100 transition"
-              >
-                Envoyer la demande
-              </button>
-
-              <button
-                type="button"
-                id="closeTrainBtn"
-                class="mt-2 w-full px-4 py-2 bg-white/10 text-white rounded-lg font-medium
-                       border border-white/20 hover:bg-white/20 transition"
-              >
-                Fermer
-              </button>
-
-              <p id="trainStatus" class="text-sm text-white/80 mt-2"></p>
-            </form>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-    </div>
-  </section>
+        <!-- FORMATS -->
+        <section>
+          <h3 class="text-4xl font-semibold band-h">Formats</h3>
+          <p class="mt-2 text-lg band-p">Choisissez le format selon votre réalité (temps, équipe, objectifs).</p>
+
+          <div class="mt-8 grid md:grid-cols-4 gap-6 items-stretch">
+            {formats.map((f) => (
+              <div class="card card-anim group relative overflow-hidden rounded-2xl p-6">
+                <div class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover-tint"></div>
+
+                <div class="relative">
+                  <h4 class="text-base font-semibold" style="color: rgba(255,255,255,0.95);">
+                    {f.title}
+                  </h4>
+                  <p class="mt-3 text-sm soft leading-relaxed">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="pb-10">
+          <div class="card group relative overflow-hidden rounded-2xl p-7">
+            <div class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover-tint"></div>
+
+            <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h4 class="text-xl font-semibold" style="color: rgba(255,255,255,0.95);">
+                  Besoin d’un parcours d’intégration “clé en main” ?
+                </h4>
+                <p class="mt-2 soft">
+                  On peut bâtir un plan simple (1–2 semaines) + mini guides internes, adapté à vos outils et à votre structure Teams/SharePoint.
+                </p>
+              </div>
+
+              <a
+                href="/survey"
+                class="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold transition hover:brightness-110"
+                style={`background: linear-gradient(90deg,
+                  color-mix(in srgb, var(--accent) 92%, white 8%),
+                  color-mix(in srgb, var(--accent) 72%, black 28%)
+                ); color:#111;`}
+              >
+                Demander une soumission →
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
 </SiteLayout>
-
-<script>
-  const btn = document.getElementById("openTrainBtn");
-  const closeBtn = document.getElementById("closeTrainBtn");
-  const panel = document.getElementById("trainFormContainer");
-  const form = document.getElementById("trainForm");
-  const status = document.getElementById("trainStatus");
-
-  if (btn && closeBtn && panel && form && status) {
-    btn.addEventListener("click", () => {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-      panel.style.opacity = "1";
-      panel.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    closeBtn.addEventListener("click", () => {
-      panel.style.maxHeight = "0";
-      panel.style.opacity = "0";
-    });
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const fd = new FormData(form);
-      const data = {};
-      for (const [k, v] of fd.entries()) data[k] = v;
-
-      status.textContent = "Envoi…";
-
-      try {
-        const res = await fetch("/api/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
-
-        if (res.ok) {
-          status.textContent = "Demande envoyée!";
-          form.reset();
-        } else {
-          status.textContent = "Erreur d’envoi.";
-        }
-      } catch (err) {
-        status.textContent = "Erreur réseau.";
-      }
-    });
-  }
-</script>

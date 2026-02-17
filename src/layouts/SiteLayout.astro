@@ -2,17 +2,17 @@
 import "../styles/global.css";
 import { theme } from "../config/theme.js";
 
-const { title = "Services TI – EÉSAD" } = Astro.props;
+const { title = "Services TI – Consortium" } = Astro.props;
 
-// Read colors from theme with hard fallbacks
-const bg = theme?.colors?.background ?? "#020617"; // slate-950
-const text = theme?.colors?.text ?? "#e5e7eb";      // slate-200
-const accent = theme?.colors?.accent ?? "#38bdf8";  // sky-400
-const border = theme?.colors?.border ?? "#1f2937";  // slate-800
+// Theme colors with safe fallbacks
+const bg = theme?.colors?.background ?? "#0b1220";
+const text = theme?.colors?.text ?? "#e5e7eb";
+const accent = theme?.colors?.accent ?? "#e1a209";
+const border = theme?.colors?.border ?? "rgba(225,162,9,0.30)";
 
-// Band + wave colors
-const bandBg = theme?.colors?.bandBackground ?? "#020617";
-const waveFill = theme?.colors?.waveFill ?? "#020617";
+// Sections / extras
+const band = theme?.colors?.bandBackground ?? "#0b1220";
+const glow = theme?.colors?.glowColor ?? "rgba(225,162,9,0.22)";
 ---
 
 <html lang="fr">
@@ -21,23 +21,23 @@ const waveFill = theme?.colors?.waveFill ?? "#020617";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
 
-    
     <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "de4731804e7e4d87b54f22a43d2b11b4"}'></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "de4731804e7e4d87b54f22a43d2b11b4"}'></script>
     <!-- End Cloudflare Web Analytics -->
-
-    <style>
-      :root {{
-        --band-bg: {bandBg};
-        --wave-fill: {waveFill};
-      }}
-    </style>
   </head>
 
-  <!-- Inline styles -->
   <body
     class="min-h-screen"
-    style={`background-color: ${bg}; color: ${text};`}
+    style={`
+      --bg: ${bg};
+      --text: ${text};
+      --accent: ${accent};
+      --border: ${border};
+      --band: ${band};
+      --glow: ${glow};
+      background-color: var(--bg);
+      color: var(--text);
+    `}
   >
     <div class="min-h-screen flex flex-col">
 
@@ -48,33 +48,54 @@ const waveFill = theme?.colors?.waveFill ?? "#020617";
         </div>
       </header>
 
-      <!-- HERO -->
-      <section class="mx-auto max-w-4xl px-4 text-center relative z-10">
+      <!-- HERO (premium glow, no box) -->
+      <section class="mx-auto max-w-5xl px-4 text-center relative z-10">
+        <!-- primary glow -->
+        <div
+          class="pointer-events-none absolute left-1/2 top-2 -translate-x-1/2 w-[70%] md:w-[55%] h-40 blur-[120px] opacity-60 -z-10"
+          style={`
+            background: radial-gradient(circle,
+              color-mix(in srgb, var(--accent) 35%, transparent),
+              transparent 70%
+            );
+          `}
+        ></div>
+
+        <!-- secondary glow -->
+        <div
+          class="pointer-events-none absolute left-1/2 top-16 -translate-x-1/2 w-[90%] h-56 blur-[160px] opacity-40 -z-10"
+          style={`
+            background: radial-gradient(circle,
+              color-mix(in srgb, var(--accent) 18%, transparent),
+              transparent 75%
+            );
+          `}
+        ></div>
+
         <slot name="hero" />
       </section>
-
       <!-- PAGE CONTENT -->
       <div class="flex-1">
         <slot />
       </div>
 
       <!-- FOOTER -->
-      <footer
-        class="mt-auto border-t relative"
-        style={`border-color: ${border};`}
-      >
+      <footer class="mt-auto border-t relative" style="border-color: var(--border);">
         <div
           class="absolute inset-x-0 -top-px h-[2px]"
-          style={`background: linear-gradient(
-            to right,
-            transparent,
-            ${accent},
-            transparent
-          );`}
+          style={`
+            background: linear-gradient(
+              to right,
+              transparent,
+              var(--accent),
+              transparent
+            );
+          `}
         ></div>
 
-        <div class="mx-auto max-w-6xl px-4 py-6 text-xs text-slate-500">
-          © {new Date().getFullYear()} — Services TI · EÉSAD
+        <div class="mx-auto max-w-6xl px-4 py-6 text-xs"
+             style="color: color-mix(in srgb, var(--text) 55%, transparent);">
+          © {new Date().getFullYear()} — Services TI · Consortium
         </div>
       </footer>
 

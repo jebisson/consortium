@@ -1,18 +1,33 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import "../styles/global.css";
-import logo from "../assets/eesad-logo.png";
+import logo from "../assets/consortium.png";
 import survey from "../data/survey.json";
 import { theme } from "../config/theme.js";
 
-const { bandBackground, waveFill, glowColor } = theme.colors;
+const { background, text, accent, border, bandBackground } = theme.colors;
 ---
 
 <SiteLayout title="Questionnaire TI – EÉSAD">
-  <!-- HEADER (same structure as other pages, text from original survey) -->
+
+  <div style={`--bg: ${background}; --text: ${text}; --accent: ${accent}; --border: ${border}; --band: ${bandBackground}; `}>
+  
+    <style>
+      /* Surfaces noires (comme index) */
+      .card-surface { background: rgb(18,18,18); border: 1px solid rgba(0,0,0,0.16); box-shadow: 0 14px 40px rgba(0,0,0,0.18); }
+      .card-icon { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); }
+      .hover-tint { background: radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 62%); }
+      .muted-on-dark { color: color-mix(in srgb, white 70%, transparent); }
+      .soft-on-dark  { color: color-mix(in srgb, white 82%, transparent); }
+      .band-title { color: rgba(17,17,17,0.92); }
+      .band-soft  { color: rgba(17,17,17,0.75); }
+      .band-muted { color: rgba(17,17,17,0.62); }
+      .focus-ring:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+    </style>
+<!-- HEADER (same structure as other pages, text from original survey) -->
   <div slot="header" class="relative mx-auto flex flex-col items-center gap-3 z-10">
-    <img src={logo.src} alt="EÉSAD" class="h-20 w-auto" />
-    <h1 class="text-sm tracking-[0.25em] text-slate-400 uppercase">
+    <img src={logo.src} alt="EÉSAD" class="h-32 w-auto" />
+    <h1 class="text-sm tracking-[0.25em] text-[color-mix(in_srgb,var(--text)_55%,transparent)] uppercase">
       Questionnaire TI
     </h1>
   </div>
@@ -26,11 +41,11 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
              bg-blue-400/30 blur-[70px] opacity-80"
     ></div>
 
-    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-100">
+    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--text)]">
       Portrait de votre environnement informatique
     </h2>
 
-    <p class="mt-3 text-base md:text-md text-slate-200">
+    <p class="mt-3 text-base md:text-md text-[color-mix(in_srgb,var(--text)_90%,transparent)]">
       Remplissez ce questionnaire. Les réponses seront envoyées à l’équipe TI.
     </p>
   </section>
@@ -40,8 +55,8 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
     href="/"
     class="fixed right-6 top-5 z-50
            inline-flex items-center px-4 py-2 rounded-lg
-           bg-slate-800/80 border border-slate-700 
-           text-slate-200 text-sm font-medium
+           bg-slate-800/80 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] 
+           text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm font-medium
            hover:bg-slate-700 hover:border-sky-400 hover:text-sky-100
            shadow-lg backdrop-blur
            transition-all"
@@ -53,8 +68,12 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
   <main class="mt-5">
     <section
       class="relative w-full overflow-hidden -mt-20"
-      style={`background-color: ${bandBackground};`}
+      style="background: var(--band);"
     >
+      <!-- LIGNE OR + FADE (comme index) -->
+      <div class="h-[2px] w-full" style="background: var(--accent);"></div>
+      <div class="h-14 w-full" style="background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 18%, transparent), transparent);"></div>
+
       <!-- Lighting under the wave -->
       <div
         class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 blur-3xl z-0"
@@ -62,34 +81,10 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       ></div>
 
 
-      <!-- Gradient overlay (under wave) -->
-      <div
-        class="absolute inset-0 bg-gradient-to-b
-               from-transparent to-slate-950/40
-               z-[1]"
-      ></div>
-
       <!-- WAVE -->
-      <svg
-        viewBox="0 0 1440 320"
-        class="pointer-events-none absolute top-0 left-0 w-full h-96 z-[2]"
-        preserveAspectRatio="none"
-        style={`color: ${waveFill};`}
-      >
-        <path
-          fill="currentColor"
-          d="
-            M0,220
-            C240,140 480,300 720,220
-            C960,140 1200,300 1440,220
-            L1440,0 L0,0 Z
-          "
-        />
-      </svg>
-
       <!-- FORM TITLE -->
       <h3
-        class="relative z-[3] text-center text-slate-400
+        class="relative z-[3] text-center text-[color-mix(in_srgb,var(--text)_55%,transparent)]
                text-xs uppercase tracking-[0.25em] mt-28 mb-8"
       >
         Formulaire
@@ -99,11 +94,11 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       <div class="relative z-[3] mx-auto max-w-3xl px-4 pb-20">
         <form
           id="surveyForm"
-          class="space-y-8 rounded-2xl p-8 bg-slate-800/80 border border-slate-700 shadow-xl backdrop-blur-sm"
+          class="space-y-8 rounded-2xl p-8 bg-slate-800/80 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] shadow-xl backdrop-blur-sm"
         >
           <!-- CLIENT INFO -->
-          <section class="space-y-3 p-4 rounded-xl bg-slate-900/60 border border-slate-700">
-            <h2 class="text-xs uppercase tracking-[0.2em] text-slate-400">
+          <section class="space-y-3 p-4 rounded-xl bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--text)_55%,transparent)]">
               Informations du membre
             </h2>
 
@@ -113,7 +108,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             <input
               name="client_nom"
               required
-              class="w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 focus:ring-2 focus:ring-sky-400"
+              class="w-full rounded-xl border border-[color-mix(in_srgb,var(--border)_65%,transparent)] bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/80 px-3 py-2 focus:ring-2 focus:ring-sky-400"
             />
 
             <label class="block text-base font-semibold">
@@ -123,7 +118,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
               type="email"
               name="client_email"
               required
-              class="w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 focus:ring-2 focus:ring-sky-400"
+              class="w-full rounded-xl border border-[color-mix(in_srgb,var(--border)_65%,transparent)] bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/80 px-3 py-2 focus:ring-2 focus:ring-sky-400"
             />
 
             <label class="block text-base font-semibold">
@@ -132,7 +127,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             <input
               name="client_org"
               required
-              class="w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 focus:ring-2 focus:ring-sky-400"
+              class="w-full rounded-xl border border-[color-mix(in_srgb,var(--border)_65%,transparent)] bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/80 px-3 py-2 focus:ring-2 focus:ring-sky-400"
             />
 
             <label class="block text-base font-semibold">
@@ -140,7 +135,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             </label>
             <input
               name="client_phone"
-              class="w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 focus:ring-2 focus:ring-sky-400"
+              class="w-full rounded-xl border border-[color-mix(in_srgb,var(--border)_65%,transparent)] bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/80 px-3 py-2 focus:ring-2 focus:ring-sky-400"
             />
           </section>
 
@@ -155,7 +150,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
               <div
                 id={q.id + "_label"}
                 class="inline-flex items-center px-2 py-1 mb-1 text-xs rounded-full
-                       bg-slate-800 text-sky-300 border border-slate-600"
+                       bg-slate-800 text-[var(--accent)] border border-slate-600"
               >
                 Partiellement
               </div>
@@ -191,7 +186,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
                 </div>
 
                 <!-- LABELS -->
-                <div class="flex justify-between mt-2 text-xs text-slate-400">
+                <div class="flex justify-between mt-2 text-xs text-[color-mix(in_srgb,var(--text)_55%,transparent)]">
                   <span>Oui</span>
                   <span>Partiellement</span>
                   <span>Je ne sais pas</span>
@@ -209,7 +204,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             >
               Envoyer
             </button>
-            <p id="status" class="text-sm text-slate-400"></p>
+            <p id="status" class="text-sm text-[color-mix(in_srgb,var(--text)_55%,transparent)]"></p>
           </div>
         </form>
 
@@ -218,18 +213,19 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
           id="resultsBox"
           class="hidden mt-6 p-6 rounded-2xl bg-slate-800/60 border border-slate-600 shadow-xl"
         >
-          <h3 class="text-lg font-semibold text-slate-100 mb-2">Résultats</h3>
-          <p class="text-slate-300 text-sm">
+          <h3 class="text-lg font-semibold text-[var(--text)] mb-2">Résultats</h3>
+          <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
             <b>Score total :</b> <span id="score_total"></span>
           </p>
-          <p class="text-slate-300 text-sm">
+          <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
             <b>Maturité :</b> <span id="score_percent"></span>
           </p>
-          <p class="mt-2 text-slate-200" id="score_message"></p>
+          <p class="mt-2 text-[color-mix(in_srgb,var(--text)_90%,transparent)]" id="score_message"></p>
         </div>
       </div>
     </section>
   </main>
+  </div>
 </SiteLayout>
 
 <!-- SCRIPT (same logic as original, with slider label now present) -->

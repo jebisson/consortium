@@ -1,17 +1,32 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
-import logo from "../assets/eesad-logo.png";
+import logo from "../assets/consortium.png";
 import { theme } from "../config/theme.js";
 
-const { bandBackground, waveFill, glowColor } = theme.colors;
+const { background, text, accent, border, bandBackground } = theme.colors;
 ---
 
 <SiteLayout title="Guide pratique – Employé | Cybersécurité">
 
-  <!-- HEADER SLOT -->
+  <div style={`--bg: ${background}; --text: ${text}; --accent: ${accent}; --border: ${border}; --band: ${bandBackground}; `}>
+
+  
+    <style>
+      /* Surfaces noires (comme index) */
+      .card-surface { background: rgb(18,18,18); border: 1px solid rgba(0,0,0,0.16); box-shadow: 0 14px 40px rgba(0,0,0,0.18); }
+      .card-icon { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); }
+      .hover-tint { background: radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 62%); }
+      .muted-on-dark { color: color-mix(in srgb, white 70%, transparent); }
+      .soft-on-dark  { color: color-mix(in srgb, white 82%, transparent); }
+      .band-title { color: rgba(17,17,17,0.92); }
+      .band-soft  { color: rgba(17,17,17,0.75); }
+      .band-muted { color: rgba(17,17,17,0.62); }
+      .focus-ring:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+    </style>
+<!-- HEADER SLOT -->
   <div slot="header" class="relative mx-auto flex flex-col items-center gap-3 z-10">
     <img src={logo.src} alt="EÉSAD" class="h-20 w-auto drop-shadow-xl" />
-    <p class="text-sm tracking-[0.25em] text-slate-400 uppercase">
+    <p class="text-sm tracking-[0.25em] text-[color-mix(in_srgb,var(--text)_55%,transparent)] uppercase">
       Guide pratique · Employé
     </p>
   </div>
@@ -26,11 +41,11 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
              blur-[70px] opacity-80">
     </div>
 
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-100 drop-shadow">
+    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-[var(--text)] drop-shadow">
       Les bons réflexes numériques au quotidien
     </h2>
 
-    <p class="mt-8 text-lg text-slate-300 leading-relaxed">
+    <p class="mt-8 text-lg text-[color-mix(in_srgb,var(--text)_78%,transparent)] leading-relaxed">
       Ce guide vous aide à adopter des comportements simples mais essentiels pour protéger
       vos données, vos appareils et l’ensemble de notre organisation.
     </p>
@@ -41,8 +56,8 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
     href="/"
     class="fixed right-6 top-5 z-50
            inline-flex items-center px-4 py-2 rounded-lg
-           bg-slate-800/80 border border-slate-700 
-           text-slate-200 text-sm font-medium
+           bg-slate-800/80 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] 
+           text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm font-medium
            hover:bg-slate-700 hover:border-sky-400 hover:text-sky-100
            shadow-lg backdrop-blur
            transition-all"
@@ -53,39 +68,9 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
   <!-- WAVE + CONTENT BAND -->
   <main
     class="relative w-full overflow-hidden -mt-20 pt-32 pb-20"
-    style={`background-color: ${bandBackground};`}
+    style="background: var(--band);"
   >
-    <!-- Under-wave lighting -->
-      <div
-        class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 blur-3xl z-0"
-        style={`background-color: ${glowColor};`}
-      ></div>
-
-
     <!-- WAVE -->
-    <svg
-      viewBox="0 0 1440 320"
-      preserveAspectRatio="none"
-      class="pointer-events-none absolute top-0 left-0 w-full h-96 z-0"
-      style={`color: ${waveFill};`}
-    >
-      <path
-        fill="currentColor"
-        d="
-          M0,220
-          C240,140 480,300 720,220
-          C960,140 1200,300 1440,220
-          L1440,0 L0,0 Z
-        "
-      />
-    </svg>
-
-    <!-- Gradient overlay -->
-    <div
-      class="absolute inset-0 bg-gradient-to-b 
-             from-transparent to-slate-950/40 z-0">
-    </div>
-
     <!-- CONTENT CONTAINER -->
     <div class="relative z-20 mx-auto max-w-5xl px-4 space-y-16">
 
@@ -328,11 +313,11 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             En cas de doute ou d’incident, agissez rapidement
           </h2>
 
-          <p class="text-slate-200">
+          <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)]">
             Une réaction rapide peut éviter une compromission ou la propagation d’un incident.
           </p>
 
-          <div class="space-y-1 text-slate-100 text-sm md:text-base">
+          <div class="space-y-1 text-[var(--text)] text-sm md:text-base">
             <p>• Ne cliquez plus et ne répondez pas</p>
             <p>• Déconnectez votre appareil du réseau si nécessaire</p>
             <p>• Contactez immédiatement l’équipe TI</p>
@@ -342,6 +327,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
     </div> <!-- END CONTENT CONTAINER -->
   </main>
+  </div>
 </SiteLayout>
 
 <style>
@@ -361,8 +347,8 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
   /* Section card styles */
   .section-card {
-    @apply relative rounded-2xl border border-slate-800
-           bg-slate-900/60 p-6 md:p-8 flex gap-4
+    @apply relative rounded-2xl border border-[color-mix(in_srgb,var(--border)_65%,transparent)]
+           bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)] p-6 md:p-8 flex gap-4
            shadow-xl shadow-black/20;
   }
 
@@ -389,7 +375,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
   }
 
   .section-text {
-    @apply text-slate-300;
+    @apply text-[color-mix(in_srgb,var(--text)_78%,transparent)];
   }
 
   .section-grid {
@@ -401,15 +387,15 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
   }
 
   .tip-box {
-    @apply rounded-xl bg-slate-900/80 border border-slate-700/80 p-4;
+    @apply rounded-xl bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/80 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]/80 p-4;
   }
 
   .tip-title {
-    @apply font-semibold text-slate-100 mb-1;
+    @apply font-semibold text-[var(--text)] mb-1;
   }
 
   .tip-text {
-    @apply text-slate-300 leading-relaxed;
+    @apply text-[color-mix(in_srgb,var(--text)_78%,transparent)] leading-relaxed;
   }
 
   .warning-box,

@@ -1,18 +1,33 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import "../styles/global.css";
-import logo from "../assets/eesad-logo.png";
+import logo from "../assets/consortium.png";
 import { theme } from "../config/theme.js";
 
-const { bandBackground, waveFill, glowColor } = theme.colors;
+const { background, text, accent, border, bandBackground } = theme.colors;
 ---
 
 <SiteLayout title="Datto RMM, Datto EDR & Kaseya 365 – EÉSAD">
 
-  <!-- HEADER SLOT -->
+  <div style={`--bg: ${background}; --text: ${text}; --accent: ${accent}; --border: ${border}; --band: ${bandBackground}; `}>
+
+  
+    <style>
+      /* Surfaces noires (comme index) */
+      .card-surface { background: rgb(18,18,18); border: 1px solid rgba(0,0,0,0.16); box-shadow: 0 14px 40px rgba(0,0,0,0.18); }
+      .card-icon { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); }
+      .hover-tint { background: radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 62%); }
+      .muted-on-dark { color: color-mix(in srgb, white 70%, transparent); }
+      .soft-on-dark  { color: color-mix(in srgb, white 82%, transparent); }
+      .band-title { color: rgba(17,17,17,0.92); }
+      .band-soft  { color: rgba(17,17,17,0.75); }
+      .band-muted { color: rgba(17,17,17,0.62); }
+      .focus-ring:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+    </style>
+<!-- HEADER SLOT -->
   <div slot="header" class="relative mx-auto flex flex-col items-center gap-3 z-10">
-    <img src={logo.src} alt="EÉSAD" class="h-20 w-auto" />
-    <h1 class="text-sm tracking-[0.25em] text-slate-400 uppercase">
+    <img src={logo.src} alt="EÉSAD" class="h-32 w-auto" />
+    <h1 class="text-sm tracking-[0.25em] text-[color-mix(in_srgb,var(--text)_55%,transparent)] uppercase">
       Supervision & Cybersécurité
     </h1>
   </div>
@@ -28,11 +43,11 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
              blur-[70px] opacity-80"
     ></div>
 
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-100">
+    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-[var(--text)]">
       Datto RMM, Datto EDR & Kaseya 365
     </h2>
 
-    <p class="mt-4 text-lg text-slate-300">
+    <p class="mt-4 text-lg text-[color-mix(in_srgb,var(--text)_78%,transparent)]">
       Une approche proactive : surveiller, corriger, détecter et répondre —
       pour réduire les pannes et bloquer les menaces modernes.
     </p>
@@ -49,7 +64,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       <a
         href="#soumission"
         class="inline-block px-6 py-3 rounded-xl font-semibold
-               bg-slate-800/60 border border-slate-700 text-slate-200
+               bg-slate-800/60 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)]
                hover:bg-slate-700 hover:border-sky-400 transition"
       >
         Demande de soumission
@@ -58,16 +73,16 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
     <!-- Anchor pills -->
     <div class="mt-8 flex flex-wrap gap-2 justify-center">
-      <a href="#rmm" class="px-4 py-2 rounded-full text-sm bg-slate-800/50 border border-slate-700 text-slate-200 hover:border-emerald-400 transition">
+      <a href="#rmm" class="px-4 py-2 rounded-full text-sm bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)] hover:border-emerald-400 transition">
         Datto RMM
       </a>
-      <a href="#edr" class="px-4 py-2 rounded-full text-sm bg-slate-800/50 border border-slate-700 text-slate-200 hover:border-indigo-400 transition">
+      <a href="#edr" class="px-4 py-2 rounded-full text-sm bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)] hover:border-indigo-400 transition">
         Datto EDR
       </a>
-      <a href="#k365" class="px-4 py-2 rounded-full text-sm bg-slate-800/50 border border-slate-700 text-slate-200 hover:border-sky-400 transition">
+      <a href="#k365" class="px-4 py-2 rounded-full text-sm bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)] hover:border-sky-400 transition">
         Kaseya 365
       </a>
-      <a href="#comparatif" class="px-4 py-2 rounded-full text-sm bg-slate-800/50 border border-slate-700 text-slate-200 hover:border-slate-400 transition">
+      <a href="#comparatif" class="px-4 py-2 rounded-full text-sm bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] border border-[color-mix(in_srgb,var(--border)_65%,transparent)] text-[color-mix(in_srgb,var(--text)_90%,transparent)] hover:border-slate-400 transition">
         Comparatif
       </a>
     </div>
@@ -79,8 +94,8 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
     href="/"
     class="fixed right-6 top-5 z-50
            inline-flex items-center px-4 py-2 rounded-lg
-           bg-slate-800/80 border border-slate-700 
-           text-slate-200 text-sm font-medium
+           bg-slate-800/80 border border-[color-mix(in_srgb,var(--border)_65%,transparent)] 
+           text-[color-mix(in_srgb,var(--text)_90%,transparent)] text-sm font-medium
            hover:bg-slate-700 hover:border-sky-400 hover:text-sky-100
            shadow-lg backdrop-blur
            transition-all"
@@ -91,39 +106,13 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
   <!-- WAVE + CONTENT BAND -->
   <section
     class="relative w-full overflow-hidden -mt-20"
-    style={`background-color: ${bandBackground};`}
+    style="background: var(--band);"
   >
-    <!-- Under-wave lighting -->
-    <div
-      class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 
-             bg-sky-500/10 blur-3xl z-0"
-    ></div>
-
-    <!-- Gradient overlay BELOW wave -->
-    <div
-      class="absolute inset-0 bg-gradient-to-b 
-             from-transparent to-slate-950/40
-             z-[1]"
-    ></div>
+      <!-- LIGNE OR + FADE (comme index) -->
+      <div class="h-[2px] w-full" style="background: var(--accent);"></div>
+      <div class="h-14 w-full" style="background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 18%, transparent), transparent);"></div>
 
     <!-- WAVE ABOVE gradient -->
-    <svg
-      viewBox="0 0 1440 320"
-      preserveAspectRatio="none"
-      class="pointer-events-none absolute top-0 left-0 w-full h-96 z-[2]"
-      style={`color: ${waveFill};`}
-    >
-      <path
-        fill="currentColor"
-        d="
-          M0,220
-          C240,140 480,300 720,220
-          C960,140 1200,300 1440,220
-          L1440,0 L0,0 Z
-        "
-      />
-    </svg>
-
     <!-- Extra glow behind cards -->
     <div
       class="absolute top-40 left-0 right-0 mx-auto w-[90%] h-40 blur-3xl z-0"
@@ -135,15 +124,15 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
       <!-- Intro -->
       <section class="grid md:grid-cols-2 gap-12">
-        <div class="space-y-4 text-slate-300 text-md leading-relaxed">
-          <h3 class="text-2xl font-semibold text-slate-100">
+        <div class="space-y-4 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-md leading-relaxed">
+          <h3 class="text-2xl font-semibold text-[var(--text)]">
             Une TI fiable, sans surprises
           </h3>
           <p>
             Le but : réduire les incidents, accélérer le support et limiter l’impact
             des cybermenaces avec une approche proactive.
           </p>
-          <ul class="list-disc ml-6 space-y-2 text-slate-300 text-base">
+          <ul class="list-disc ml-6 space-y-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-base">
             <li>Surveillance et alertes 24/7</li>
             <li>Correctifs et entretien automatisés</li>
             <li>Détection avancée (ransomware, comportements suspects)</li>
@@ -152,27 +141,27 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
         </div>
 
         <div class="grid gap-6">
-          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <div class="text-2xl">🔍</div>
             <div>
-              <p class="text-slate-200 font-semibold">Visibilité complète</p>
-              <p class="text-slate-400 text-sm">État du parc, alertes, posture sécurité.</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)] font-semibold">Visibilité complète</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-sm">État du parc, alertes, posture sécurité.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <div class="text-2xl">⚙️</div>
             <div>
-              <p class="text-slate-200 font-semibold">Automatisation</p>
-              <p class="text-slate-400 text-sm">Patching, scripts, remédiations.</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)] font-semibold">Automatisation</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-sm">Patching, scripts, remédiations.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="flex items-start gap-4 p-6 rounded-2xl bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <div class="text-2xl">🛡️</div>
             <div>
-              <p class="text-slate-200 font-semibold">Protection moderne</p>
-              <p class="text-slate-400 text-sm">Détection comportementale & réponse.</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_90%,transparent)] font-semibold">Protection moderne</p>
+              <p class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-sm">Détection comportementale & réponse.</p>
             </div>
           </div>
         </div>
@@ -181,22 +170,22 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       <!-- Datto RMM -->
       <section id="rmm" class="space-y-6">
         <div class="flex items-baseline justify-between gap-6 flex-wrap">
-          <h3 class="text-2xl font-semibold text-slate-100">Datto RMM</h3>
-          <span class="text-sm text-slate-400">Supervision & maintenance proactive</span>
+          <h3 class="text-2xl font-semibold text-[var(--text)]">Datto RMM</h3>
+          <span class="text-sm text-[color-mix(in_srgb,var(--text)_55%,transparent)]">Supervision & maintenance proactive</span>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <h4 class="font-semibold text-lg mb-2 text-emerald-300">Surveillance 24/7</h4>
-            <p class="text-slate-300 text-sm">Alertes en temps réel sur la santé des postes/serveurs.</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Alertes en temps réel sur la santé des postes/serveurs.</p>
           </div>
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <h4 class="font-semibold text-lg mb-2 text-emerald-300">Patching & maintenance</h4>
-            <p class="text-slate-300 text-sm">Correctifs et tâches d’entretien automatisés, moins d’incidents.</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Correctifs et tâches d’entretien automatisés, moins d’incidents.</p>
           </div>
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <h4 class="font-semibold text-lg mb-2 text-emerald-300">Automatisation</h4>
-            <p class="text-slate-300 text-sm">Scripts, remédiations, inventaire et optimisation continue.</p>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Scripts, remédiations, inventaire et optimisation continue.</p>
           </div>
         </div>
       </section>
@@ -204,22 +193,22 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       <!-- Datto EDR -->
       <section id="edr" class="space-y-6">
         <div class="flex items-baseline justify-between gap-6 flex-wrap">
-          <h3 class="text-2xl font-semibold text-slate-100">Datto EDR</h3>
-          <span class="text-sm text-slate-400">Détection & réponse (menaces avancées)</span>
+          <h3 class="text-2xl font-semibold text-[var(--text)]">Datto EDR</h3>
+          <span class="text-sm text-[color-mix(in_srgb,var(--text)_55%,transparent)]">Détection & réponse (menaces avancées)</span>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <h4 class="font-semibold text-lg mb-2 text-indigo-300">Détection comportementale</h4>
-            <p class="text-slate-300 text-sm">Bloque les attaques même inconnues (ransomware, intrusions).</p>
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <h4 class="font-semibold text-lg mb-2 text-[color-mix(in_srgb,var(--accent)_80%,white_20%)]">Détection comportementale</h4>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Bloque les attaques même inconnues (ransomware, intrusions).</p>
           </div>
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <h4 class="font-semibold text-lg mb-2 text-indigo-300">Isolation & réponse</h4>
-            <p class="text-slate-300 text-sm">Limite la propagation et accélère la remédiation.</p>
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <h4 class="font-semibold text-lg mb-2 text-[color-mix(in_srgb,var(--accent)_80%,white_20%)]">Isolation & réponse</h4>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Limite la propagation et accélère la remédiation.</p>
           </div>
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <h4 class="font-semibold text-lg mb-2 text-indigo-300">Traçabilité</h4>
-            <p class="text-slate-300 text-sm">Meilleure visibilité pour comprendre et documenter un incident.</p>
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <h4 class="font-semibold text-lg mb-2 text-[color-mix(in_srgb,var(--accent)_80%,white_20%)]">Traçabilité</h4>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Meilleure visibilité pour comprendre et documenter un incident.</p>
           </div>
         </div>
       </section>
@@ -227,41 +216,41 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       <!-- Kaseya 365 -->
       <section id="k365" class="space-y-6">
         <div class="flex items-baseline justify-between gap-6 flex-wrap">
-          <h3 class="text-2xl font-semibold text-slate-100">Kaseya 365</h3>
-          <span class="text-sm text-slate-400">Suite sécurité centralisée</span>
+          <h3 class="text-2xl font-semibold text-[var(--text)]">Kaseya 365</h3>
+          <span class="text-sm text-[color-mix(in_srgb,var(--text)_55%,transparent)]">Suite sécurité centralisée</span>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <h4 class="font-semibold text-lg mb-2 text-sky-300">Centralisation</h4>
-            <p class="text-slate-300 text-sm">Une vue d’ensemble sécurité et contrôle cohérent.</p>
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <h4 class="font-semibold text-lg mb-2 text-[var(--accent)]">Centralisation</h4>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Une vue d’ensemble sécurité et contrôle cohérent.</p>
           </div>
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <h4 class="font-semibold text-lg mb-2 text-sky-300">Réponse automatisée</h4>
-            <p class="text-slate-300 text-sm">Réduit le temps de réaction et les angles morts.</p>
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <h4 class="font-semibold text-lg mb-2 text-[var(--accent)]">Réponse automatisée</h4>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Réduit le temps de réaction et les angles morts.</p>
           </div>
-          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <h4 class="font-semibold text-lg mb-2 text-sky-300">Posture sécurité</h4>
-            <p class="text-slate-300 text-sm">Rapports et indicateurs pour piloter vos priorités.</p>
+          <div class="rounded-2xl p-6 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <h4 class="font-semibold text-lg mb-2 text-[var(--accent)]">Posture sécurité</h4>
+            <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">Rapports et indicateurs pour piloter vos priorités.</p>
           </div>
         </div>
       </section>
 
       <!-- Forfaits -->
       <section id="forfaits" class="space-y-8">
-        <h3 class="text-center text-slate-400 text-xs uppercase tracking-[0.25em]">
+        <h3 class="text-center text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-xs uppercase tracking-[0.25em]">
           Forfaits mensuels
         </h3>
 
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="rounded-2xl p-8 bg-slate-800/40 backdrop-blur border border-slate-700">
+          <div class="rounded-2xl p-8 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
             <h4 class="text-xl font-semibold mb-2 text-emerald-300">RMM + EDR</h4>
-            <p class="text-xl mb-2 text-slate-300">Supervision + protection avancée</p>
+            <p class="text-xl mb-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)]">Supervision + protection avancée</p>
             <p class="mb-5">
-              <span class="font-extrabold text-5xl text-slate-100">$6</span>
-              <span class="text-slate-400"> / utilisateur / mois</span>
+              <span class="font-extrabold text-5xl text-[var(--text)]">$6</span>
+              <span class="text-[color-mix(in_srgb,var(--text)_55%,transparent)]"> / utilisateur / mois</span>
             </p>
-            <ul class="list-disc ml-6 space-y-2 text-slate-300 text-sm">
+            <ul class="list-disc ml-6 space-y-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
               <li>Monitoring 24/7</li>
               <li>Patching & maintenance automatisés</li>
               <li>Détection & réponse EDR</li>
@@ -269,14 +258,14 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
             </ul>
           </div>
 
-          <div class="rounded-2xl p-8 bg-slate-800/40 backdrop-blur border border-slate-700">
-            <h4 class="text-xl font-semibold mb-2 text-sky-300">Kaseya 365</h4>
-            <p class="text-xl mb-2 text-slate-300">Suite centralisée</p>
+          <div class="rounded-2xl p-8 bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
+            <h4 class="text-xl font-semibold mb-2 text-[var(--accent)]">Kaseya 365</h4>
+            <p class="text-xl mb-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)]">Suite centralisée</p>
             <p class="mb-5">
-              <span class="font-extrabold text-5xl text-slate-100">$8</span>
-              <span class="text-slate-400"> / utilisateur / mois</span>
+              <span class="font-extrabold text-5xl text-[var(--text)]">$8</span>
+              <span class="text-[color-mix(in_srgb,var(--text)_55%,transparent)]"> / utilisateur / mois</span>
             </p>
-            <ul class="list-disc ml-6 space-y-2 text-slate-300 text-sm">
+            <ul class="list-disc ml-6 space-y-2 text-[color-mix(in_srgb,var(--text)_78%,transparent)] text-sm">
               <li>Gestion sécurité centralisée</li>
               <li>Visibilité posture sécurité</li>
               <li>Réponses automatisées</li>
@@ -300,19 +289,19 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
           </div>
         </div>
 
-        <p class="text-slate-400 text-xs">
+        <p class="text-[color-mix(in_srgb,var(--text)_55%,transparent)] text-xs">
           * Prix par utilisateur/mois. Certaines conditions peuvent s’appliquer selon l’environnement.
         </p>
       </section>
 
       <!-- Comparatif -->
       <section id="comparatif" class="space-y-6">
-        <h3 class="text-2xl font-semibold text-slate-100">Tableau comparatif</h3>
+        <h3 class="text-2xl font-semibold text-[var(--text)]">Tableau comparatif</h3>
 
-        <div class="rounded-2xl bg-slate-800/40 backdrop-blur border border-slate-700 overflow-hidden">
+        <div class="rounded-2xl bg-slate-800/40 backdrop-blur border border-[color-mix(in_srgb,var(--border)_65%,transparent)] overflow-hidden">
           <div class="overflow-x-auto">
             <table class="w-full text-sm">
-              <thead class="bg-slate-900/50 text-slate-300">
+              <thead class="bg-[color-mix(in_srgb,var(--bg)_82%,black_18%)]/50 text-[color-mix(in_srgb,var(--text)_78%,transparent)]">
                 <tr>
                   <th class="text-left px-5 py-4 font-semibold">Fonction</th>
                   <th class="text-left px-5 py-4 font-semibold">RMM + EDR (6$)</th>
@@ -320,7 +309,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
                   <th class="text-left px-5 py-4 font-semibold">Combiné (13$)</th>
                 </tr>
               </thead>
-              <tbody class="text-slate-300">
+              <tbody class="text-[color-mix(in_srgb,var(--text)_78%,transparent)]">
                 {[
                   ["Surveillance 24/7 & alertes", "✅", "—", "✅"],
                   ["Correctifs / patching automatisé", "✅", "—", "✅"],
@@ -331,7 +320,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
                   ["Suite centralisée / gouvernance", "—", "✅", "✅"],
                   ["Support prioritaire & roadmap", "—", "—", "✅"],
                 ].map(([feature, a, b, c]) => (
-                  <tr class="border-t border-slate-700/60">
+                  <tr class="border-t border-[color-mix(in_srgb,var(--border)_65%,transparent)]/60">
                     <td class="px-5 py-4">{feature}</td>
                     <td class="px-5 py-4">{a}</td>
                     <td class="px-5 py-4">{b}</td>
@@ -346,10 +335,10 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
       <!-- Soumission (formulaire coulissant) -->
       <section id="soumission">
-        <div class="rounded-2xl p-10 bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-xl border border-slate-700 relative">
+        <div class="rounded-2xl p-10 bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-xl border border-[color-mix(in_srgb,var(--border)_65%,transparent)] relative">
           <h4 class="text-3xl font-semibold mb-3">Demande de soumission</h4>
 
-          <p class="text-slate-300 mb-6">
+          <p class="text-[color-mix(in_srgb,var(--text)_78%,transparent)] mb-6">
             Indique le nombre d’utilisateurs et les services souhaités. On te revient rapidement.
           </p>
 
@@ -367,7 +356,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
           >
             <form
               id="quoteForm"
-              class="space-y-4 bg-white/10 backdrop-blur p-6 rounded-xl border border-white/20"
+              class="space-y-4 bg-white/10 backdrop-blur p-6 rounded-xl border border-[color-mix(in_srgb,var(--border)_75%,transparent)]"
             >
               <h5 class="text-xl font-semibold mb-2">Informations</h5>
 
@@ -453,7 +442,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
                 type="button"
                 id="closeQuoteBtn"
                 class="mt-2 w-full px-4 py-2 bg-white/10 text-white rounded-lg font-medium
-                       border border-white/20 hover:bg-white/20 transition"
+                       border border-[color-mix(in_srgb,var(--border)_75%,transparent)] hover:bg-white/20 transition"
               >
                 Fermer
               </button>
@@ -465,12 +454,12 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
       </section>
 
       <!-- Loi 25 -->
-      <section class="rounded-2xl bg-slate-800/50 p-8 border border-slate-700">
+      <section class="rounded-2xl bg-[color-mix(in_srgb,var(--bg)_88%,black_12%)] p-8 border border-[color-mix(in_srgb,var(--border)_65%,transparent)]">
         <div class="flex items-start gap-4">
           <div class="text-3xl">🧾</div>
           <div>
             <h4 class="text-xl font-semibold mb-2 text-blue-300">Conformité & bonnes pratiques</h4>
-            <p class="leading-relaxed text-slate-300">
+            <p class="leading-relaxed text-[color-mix(in_srgb,var(--text)_78%,transparent)]">
               Ces services améliorent la visibilité, la détection et la réponse aux incidents —
               une base solide pour réduire les risques, soutenir les exigences (ex : Loi 25) et
               documenter la gestion de la sécurité.
@@ -481,6 +470,7 @@ const { bandBackground, waveFill, glowColor } = theme.colors;
 
     </div>
   </section>
+  </div>
 </SiteLayout>
 
 <script>
