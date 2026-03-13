@@ -53,11 +53,13 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
         // Detect if it's the backup activation form
-        const isActivation =
-        Object.keys(body).some((k) => k.startsWith("activation_"));
+        const isActivation = Object.keys(body).some((k) => k.startsWith("activation_"));
+        const isContact = body["form_type"] === "contact";
 
         const emailSubject = isActivation
         ? "Demande d’activation — Sauvegarde Microsoft 365"
+        : isContact
+        ? `Contact — ${body["contact_subject"] || "Nouveau message"}`
         : "Soumission du questionnaire TI";
 
         await transporter.sendMail({

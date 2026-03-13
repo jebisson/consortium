@@ -33,6 +33,7 @@ const en: Translations = {
       formation: "Training",
       conseil: "IT Advisory",
       survey: "Questionnaire",
+      contact: "Contact",
     },
     law25: "Law 25",
     optional: "(optional)",
