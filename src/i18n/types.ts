@@ -30,6 +30,7 @@ export interface CommonTranslations {
     formation: string;
     conseil: string;
     survey: string;
+    contact: string;
   };
   law25: string;
   optional: string;
