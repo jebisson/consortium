@@ -1,0 +1,237 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { t } from "../../i18n/utils";
+import { tenant } from "../../config/tenant";
+
+export const prerender = true;
+export function getStaticPaths() {
+  return [{ params: { lang: "fr" } }, { params: { lang: "en" } }];
+}
+
+const { lang } = Astro.params as { lang: string };
+const tr = t(lang);
+const d = tr.dell;
+const currentPath = `/${lang}/dell`;
+---
+
+<SiteLayout title={d.title} description={d.heroDesc} lang={lang} currentPath={currentPath}>
+  <style>
+    .card-dark {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.22);
+      border-radius: 1rem;
+    }
+    .hover-tint {
+      background: radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 62%);
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.70; transition: opacity 0.3s;
+    }
+    .soft  { color: color-mix(in srgb, white 82%, transparent); }
+    .muted { color: color-mix(in srgb, white 68%, transparent); }
+    .band-title { color: rgba(17,17,17,0.92); }
+    .band-soft  { color: rgba(17,17,17,0.75); }
+    .band-muted { color: rgba(17,17,17,0.62); }
+    .icon-accent { color: var(--accent); }
+    .card-icon { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); }
+    .focus-ring:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+    .pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); color: rgba(255,255,255,0.92); }
+  </style>
+
+  <!-- HEADER -->
+  <div slot="header" class="flex flex-col items-center">
+    <img src={tenant.logoSrc} alt={tenant.name} class="h-28 md:h-36 w-auto drop-shadow-lg" />
+    <p class="mt-3 text-xs tracking-[0.35em] uppercase"
+       style="color: color-mix(in srgb, var(--text) 55%, transparent);">{d.headerSubtitle}</p>
+  </div>
+
+  <!-- HERO -->
+  <div slot="hero" class="relative max-w-4xl mx-auto px-4 text-center z-20 pt-2 pb-10">
+    <div class="pointer-events-none absolute left-1/2 top-8 -translate-x-1/2 w-[65%] h-24 blur-[80px] opacity-60"
+         style="background: color-mix(in srgb, var(--accent) 20%, transparent);"></div>
+    <!-- Dell authorized badge -->
+    <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full animate-fade-up"
+         style="background: color-mix(in srgb, var(--accent) 15%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);">
+      <svg class="h-4 w-4 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
+      </svg>
+      <span class="text-xs font-semibold tracking-wide" style="color: var(--accent);">{d.badgeText}</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight animate-fade-up animate-fade-up-delay-1" style="color: var(--text);">
+      {d.heroTitle}
+    </h1>
+    <p class="mt-4 text-lg soft animate-fade-up animate-fade-up-delay-2 max-w-2xl mx-auto">{d.heroDesc}</p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center animate-fade-up animate-fade-up-delay-2">
+      <a href="#produits"
+         class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold transition hover:brightness-110 active:scale-95"
+         style="background: var(--accent); color: #111; box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 30%, transparent);">
+        {lang === "fr" ? "Voir les catégories" : "Browse categories"}
+      </a>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-2 justify-center animate-fade-up animate-fade-up-delay-3">
+      {d.heroTags.map((tag) => <span class="pill px-4 py-2 rounded-full text-sm">{tag}</span>)}
+    </div>
+  </div>
+
+  <!-- BAND -->
+  <section class="relative w-full overflow-hidden" style="background: var(--band);">
+    <div class="h-[2px] w-full" style="background: var(--accent);"></div>
+    <div class="h-12 w-full"
+         style="background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 16%, transparent), transparent);"></div>
+
+    <div class="relative z-10">
+      <main class="mx-auto max-w-6xl px-4 pb-20 pt-10 space-y-14">
+
+        <!-- ADVANTAGES -->
+        <section>
+          <div class="rounded-3xl bg-white p-8 md:p-10 shadow-xl border border-black/10 reveal">
+            <h2 class="text-3xl font-semibold band-title">{d.advantagesTitle}</h2>
+            <p class="mt-3 text-lg band-soft max-w-3xl">{d.advantagesDesc}</p>
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+              {d.advantages.map((a, i) => (
+                <div class="rounded-2xl p-6 border border-black/10 reveal">
+                  <div class="flex items-start gap-3">
+                    <div class="h-11 w-11 rounded-xl card-icon flex items-center justify-center shrink-0">
+                      {i === 0 && <svg class="h-6 w-6 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>}
+                      {i === 1 && <svg class="h-6 w-6 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>}
+                      {i === 2 && <svg class="h-6 w-6 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>}
+                      {i === 3 && <svg class="h-6 w-6 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>}
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold band-title">{a.title}</h3>
+                      <p class="mt-1 band-muted">{a.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- PRODUCTS -->
+        <section id="produits">
+          <h2 class="text-3xl font-semibold reveal" style="color: black;">{d.productsTitle}</h2>
+          <p class="mt-2 max-w-3xl reveal" style="color: rgba(17,17,17,0.70);">{d.productsDesc}</p>
+          <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {d.products.map((p, i) => (
+              <div class="relative rounded-2xl p-6 card-dark overflow-hidden reveal">
+                <div class="hover-tint"></div>
+                <div class="relative">
+                  <div class="h-11 w-11 rounded-xl card-icon flex items-center justify-center mb-4">
+                    {i === 0 && <svg class="h-6 w-6 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/></svg>}
+                    {i === 1 && <svg class="h-6 w-6 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v.75a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25v-.75M3 13.125C3 12.504 3.504 12 4.125 12h15.75c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 16.875v-3.75zM3 6.375C3 5.754 3.504 5.25 4.125 5.25h15.75c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 10.125v-3.75z"/></svg>}
+                    {i === 2 && <svg class="h-6 w-6 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125z"/></svg>}
+                    {i === 3 && <svg class="h-6 w-6 icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>}
+                  </div>
+                  <h3 class="text-lg font-semibold soft">{p.title}</h3>
+                  <p class="mt-2 muted text-sm">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- CTA + FORM -->
+        <section id="demande" class="pb-6">
+          <div class="rounded-3xl p-8 md:p-10 card-dark overflow-hidden relative reveal">
+            <div class="hover-tint" style="opacity: 0.60;"></div>
+            <div class="pointer-events-none absolute -top-20 -left-20 h-52 w-52 rounded-full blur-3xl opacity-25" style="background: var(--accent);"></div>
+            <div class="pointer-events-none absolute -bottom-20 -right-20 h-52 w-52 rounded-full blur-3xl opacity-15" style="background: var(--accent);"></div>
+
+            <div class="relative flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+              <div class="md:max-w-xl">
+                <h2 class="text-3xl font-semibold soft">{d.ctaTitle}</h2>
+                <p class="mt-2 muted">{d.ctaDesc}</p>
+                <div class="mt-6">
+                  <button id="openFormBtn" type="button"
+                          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold transition hover:brightness-110 focus-ring"
+                          style="background: var(--accent); color: #111; box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 30%, transparent);">
+                    {d.ctaOpenBtn}
+                  </button>
+                </div>
+                <p id="dellStatus" class="mt-4 text-sm muted"></p>
+              </div>
+
+              <div class="md:flex-1">
+                <div id="formContainer" class="overflow-hidden max-h-0 opacity-0 transition-all duration-500">
+                  <div class="rounded-2xl p-6 md:p-7"
+                       style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10);">
+                    <div class="flex items-center justify-between gap-4 mb-4">
+                      <h3 class="text-xl font-semibold soft">{d.formTitle}</h3>
+                      <button id="closeFormBtn" type="button"
+                              class="px-3 py-2 rounded-lg card-icon muted hover:brightness-110 focus-ring text-sm">
+                        {d.formCloseBtn}
+                      </button>
+                    </div>
+                    <form id="dellForm" class="space-y-4">
+                      <div>
+                        <label class="block text-sm font-medium muted">{d.formOrgLabel}</label>
+                        <input type="text" name="dell_org" required
+                               class="mt-1 w-full rounded-lg px-3 py-2 bg-white/10 border border-white/20 text-white focus-ring" />
+                      </div>
+                      <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label class="block text-sm font-medium muted">{d.formEmailLabel}</label>
+                          <input type="email" name="dell_email" required
+                                 class="mt-1 w-full rounded-lg px-3 py-2 bg-white/10 border border-white/20 text-white focus-ring" />
+                        </div>
+                        <div>
+                          <label class="block text-sm font-medium muted">{d.formTelLabel}</label>
+                          <input type="tel" name="dell_tel"
+                                 class="mt-1 w-full rounded-lg px-3 py-2 bg-white/10 border border-white/20 text-white focus-ring" />
+                        </div>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-medium muted">{d.formNeedLabel}</label>
+                        <input type="text" name="dell_need"
+                               class="mt-1 w-full rounded-lg px-3 py-2 bg-white/10 border border-white/20 text-white focus-ring" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-medium muted">{d.formMsgLabel}</label>
+                        <textarea name="dell_msg" rows="4" required
+                                  class="mt-1 w-full rounded-lg px-3 py-2 bg-white/10 border border-white/20 text-white focus-ring"></textarea>
+                      </div>
+                      <button type="submit"
+                              class="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold transition hover:brightness-110 focus-ring"
+                              style="background: var(--accent); color: #111;">
+                        {d.formSubmitBtn}
+                      </button>
+                      <p class="text-xs muted">{d.formConsent}</p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </section>
+</SiteLayout>
+
+<script define:vars={{ msgSending: tr.common.sending, msgDone: tr.common.sent, msgError: tr.common.errorSend, msgNetwork: tr.common.errorNetwork }}>
+  const btn    = document.getElementById("openFormBtn");
+  const close  = document.getElementById("closeFormBtn");
+  const panel  = document.getElementById("formContainer");
+  const form   = document.getElementById("dellForm");
+  const status = document.getElementById("dellStatus");
+  if (btn && close && panel && form && status) {
+    btn.addEventListener("click", () => {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.opacity = "1";
+      panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+    close.addEventListener("click", () => { panel.style.maxHeight = "0"; panel.style.opacity = "0"; });
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = {};
+      for (const [k, v] of new FormData(form).entries()) data[k] = v;
+      status.textContent = msgSending;
+      try {
+        const res = await fetch("/api/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+        status.textContent = res.ok ? msgDone : msgError;
+        if (res.ok) form.reset();
+      } catch { status.textContent = msgNetwork; }
+    });
+  }
+</script>

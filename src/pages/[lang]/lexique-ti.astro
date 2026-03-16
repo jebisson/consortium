@@ -1,0 +1,119 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { t } from "../../i18n/utils";
+import { tenant } from "../../config/tenant";
+
+export const prerender = true;
+export function getStaticPaths() {
+  return [{ params: { lang: "fr" } }, { params: { lang: "en" } }];
+}
+
+const { lang } = Astro.params as { lang: string };
+const tr = t(lang);
+const l = tr.lexique;
+const currentPath = `/${lang}/lexique-ti`;
+---
+
+<SiteLayout title={l.title} description={l.heroDesc} lang={lang} currentPath={currentPath}>
+  <style>
+    .band-title { color: rgba(17,17,17,0.92); }
+    .band-soft  { color: rgba(17,17,17,0.75); }
+    .band-muted { color: rgba(17,17,17,0.62); }
+    .term-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .term-card:hover {
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+    .term-card[hidden] { display: none; }
+    .search-input {
+      width: 100%;
+      border-radius: 0.75rem;
+      padding: 0.625rem 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
+    .search-input::placeholder { color: rgba(255,255,255,0.45); }
+    .animate-fade-up { animation: fadeUp 0.5s ease both; }
+    .animate-fade-up-delay-1 { animation-delay: 0.1s; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+    .reveal { opacity: 1; }
+  </style>
+
+  <!-- HEADER -->
+  <div slot="header" class="flex flex-col items-center">
+    <img src={tenant.logoSrc} alt={tenant.name} class="h-28 md:h-36 w-auto drop-shadow-lg" />
+    <p class="mt-3 text-xs tracking-[0.35em] uppercase animate-fade-up animate-fade-up-delay-1"
+       style="color: color-mix(in srgb, var(--text) 55%, transparent);">{l.headerSubtitle}</p>
+  </div>
+
+  <!-- HERO -->
+  <div slot="hero" class="relative max-w-3xl mx-auto px-4 text-center z-20 pt-2 pb-10">
+    <div class="pointer-events-none absolute left-1/2 top-8 -translate-x-1/2 w-[60%] h-20 blur-[70px] opacity-50"
+         style="background: color-mix(in srgb, var(--accent) 20%, transparent);"></div>
+    <h1 class="mt-4 text-4xl md:text-5xl font-bold tracking-tight animate-fade-up" style="color: var(--text);">
+      {l.heroTitle}
+    </h1>
+    <p class="mt-4 text-lg animate-fade-up animate-fade-up-delay-1 max-w-2xl mx-auto"
+       style="color: color-mix(in srgb, var(--text) 78%, transparent);">{l.heroDesc}</p>
+
+    <!-- Search -->
+    <div class="mt-8 max-w-lg mx-auto animate-fade-up animate-fade-up-delay-1">
+      <input id="lexSearch" type="search" placeholder={l.searchPlaceholder} class="search-input" autocomplete="off" />
+    </div>
+  </div>
+
+  <!-- BAND -->
+  <section class="relative w-full overflow-hidden" style="background: var(--band);">
+    <div class="h-[2px] w-full" style="background: var(--accent);"></div>
+    <div class="h-12 w-full"
+         style="background: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 16%, transparent), transparent);"></div>
+
+    <div class="relative z-10">
+      <main class="mx-auto max-w-6xl px-4 pb-20 pt-6">
+
+        <div class="rounded-3xl bg-white p-8 md:p-10 shadow-xl border border-black/10 reveal">
+          <p id="lexNoResults" class="hidden text-center band-muted py-6">{l.noResults}</p>
+          <div id="lexGrid" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {l.terms.map((item) => (
+              <div class="term-card" data-term={item.term.toLowerCase()}>
+                <h3 class="text-base font-semibold band-title">{item.term}</h3>
+                <p class="mt-1 text-sm leading-relaxed band-muted">{item.def}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </section>
+</SiteLayout>
+
+<script define:vars={{ noResultsLabel: l.noResults }}>
+  const input = document.getElementById("lexSearch");
+  const grid  = document.getElementById("lexGrid");
+  const empty = document.getElementById("lexNoResults");
+  if (input && grid && empty) {
+    input.addEventListener("input", () => {
+      const q = input.value.toLowerCase().trim();
+      let visible = 0;
+      grid.querySelectorAll(".term-card").forEach((card) => {
+        const match = !q || card.dataset.term.includes(q) ||
+                      card.querySelector("p").textContent.toLowerCase().includes(q);
+        card.hidden = !match;
+        if (match) visible++;
+      });
+      empty.classList.toggle("hidden", visible > 0);
+    });
+  }
+</script>

@@ -25,10 +25,14 @@ export interface CommonTranslations {
     home: string;
     sauvegarde: string;
     securite: string;
-    guide: string;
+    migration: string;
     rmm: string;
     formation: string;
     conseil: string;
+    support: string;
+    dell: string;
+    automate: string;
+    lexique: string;
     survey: string;
     contact: string;
   };
@@ -58,6 +62,8 @@ export interface HomeTranslations {
   surveyCta: string;
   cards: { title: string; desc: string }[];
   security: { title: string; desc: string };
+  resourcesTitle: string;
+  resourceItems: { title: string; desc: string; cta: string }[];
 }
 
 export interface BackupTranslations {
@@ -230,6 +236,113 @@ export interface ConseilTranslations {
   formConsent: string;
 }
 
+export interface MigrationTranslations {
+  title: string;
+  headerSubtitle: string;
+  heroTitle: string;
+  heroDesc: string;
+  pills: string[];
+  benefitsTitle: string;
+  benefitsDesc: string;
+  benefits: { icon: string; title: string; desc: string }[];
+  ctaTitle: string;
+  ctaDesc: string;
+  ctaBtn: string;
+  formTitle: string;
+  formCloseBtn: string;
+  formConsent: string;
+}
+
+export interface SupportTranslations {
+  title: string;
+  headerSubtitle: string;
+  heroTitle: string;
+  heroDesc: string;
+  heroTags: string[];
+  featuresTitle: string;
+  featuresDesc: string;
+  features: { title: string; desc: string }[];
+  plansTitle: string;
+  plansDesc: string;
+  plans: { title: string; hours: string; subtitle: string; bullets: string[] }[];
+  priceNote: string;
+  ctaTitle: string;
+  ctaDesc: string;
+  ctaOpenBtn: string;
+  formTitle: string;
+  formCloseBtn: string;
+  formOrgLabel: string;
+  formEmailLabel: string;
+  formTelLabel: string;
+  formPlanLabel: string;
+  formPlans: { value: string; label: string }[];
+  formMsgLabel: string;
+  formSubmitBtn: string;
+  formConsent: string;
+}
+
+export interface DellTranslations {
+  title: string;
+  headerSubtitle: string;
+  heroTitle: string;
+  heroDesc: string;
+  heroTags: string[];
+  badgeText: string;
+  advantagesTitle: string;
+  advantagesDesc: string;
+  advantages: { title: string; desc: string }[];
+  productsTitle: string;
+  productsDesc: string;
+  products: { title: string; desc: string }[];
+  ctaTitle: string;
+  ctaDesc: string;
+  ctaOpenBtn: string;
+  formTitle: string;
+  formCloseBtn: string;
+  formOrgLabel: string;
+  formEmailLabel: string;
+  formTelLabel: string;
+  formNeedLabel: string;
+  formMsgLabel: string;
+  formSubmitBtn: string;
+  formConsent: string;
+}
+
+export interface AutomateTranslations {
+  title: string;
+  headerSubtitle: string;
+  heroTitle: string;
+  heroDesc: string;
+  heroTags: string[];
+  benefitsTitle: string;
+  benefitsDesc: string;
+  benefits: { title: string; desc: string }[];
+  usecasesTitle: string;
+  usecasesDesc: string;
+  usecases: { title: string; desc: string }[];
+  ctaTitle: string;
+  ctaDesc: string;
+  ctaOpenBtn: string;
+  formTitle: string;
+  formCloseBtn: string;
+  formOrgLabel: string;
+  formEmailLabel: string;
+  formTelLabel: string;
+  formMsgLabel: string;
+  formSubmitBtn: string;
+  formConsent: string;
+}
+
+export interface LexiqueTranslations {
+  title: string;
+  headerSubtitle: string;
+  heroTitle: string;
+  heroDesc: string;
+  searchPlaceholder: string;
+  noResults: string;
+  terms: { term: string; def: string }[];
+}
+
 export interface SurveyTranslations {
   title: string;
   heroTitle: string;
@@ -248,8 +361,13 @@ export interface Translations {
   backup: BackupTranslations;
   security: SecurityTranslations;
   guide: GuideTranslations;
+  migration: MigrationTranslations;
   rmm: RmmTranslations;
   formation: FormationTranslations;
   conseil: ConseilTranslations;
+  support: SupportTranslations;
+  dell: DellTranslations;
+  automate: AutomateTranslations;
+  lexique: LexiqueTranslations;
   survey: SurveyTranslations;
 }
