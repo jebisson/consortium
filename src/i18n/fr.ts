@@ -633,7 +633,7 @@ const fr: Translations = {
     heroTitle: "Un helpdesk humain, réactif et flexible",
     heroDesc: "Des banques d'heures adaptées à votre réalité, support à distance et sur site, sans abonnement complexe.",
     heroTags: ["Banques d'heures", "Téléassistance", "Sur site", "Priorisation claire"],
-    featuresTitle: "Ce qu'on couvre",
+    featuresTitle: "Ce que l'on couvre",
     featuresDesc: "Un support pensé pour les organisations qui ont besoin d'aide sans vouloir gérer un service TI interne.",
     features: [
       { title: "Prise en charge rapide", desc: "Incidents classifiés par priorité, les urgences passent en premier, les demandes courantes en temps normal." },
