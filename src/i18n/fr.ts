@@ -689,7 +689,7 @@ const fr: Translations = {
     productsTitle: "Catégories disponibles",
     productsDesc: "De l'ordinateur portable au serveur, on couvre l'ensemble des besoins matériels.",
     products: [
-      { title: "Portables & postes de travail", desc: "Latitude, Vostro, Precision,pour le bureau, le télétravail et les usages intensifs." },
+      { title: "Portables & postes de travail", desc: "Dell Pro, XPS,pour le bureau, le télétravail et les usages intensifs." },
       { title: "Serveurs & stockage", desc: "PowerEdge et solutions de stockage Dell pour les environnements locaux ou hybrides." },
       { title: "Écrans & périphériques", desc: "Moniteurs, docks, claviers, souris et accessoires certifiés Dell." },
       { title: "Solutions pour petites équipes", desc: "Bundles configurés pour les organisations de 5 à 50 utilisateurs,simple, efficace, évolutif." },

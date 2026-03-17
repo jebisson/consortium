@@ -689,7 +689,7 @@ const en: Translations = {
     productsTitle: "Available categories",
     productsDesc: "From laptops to servers, we cover all hardware needs.",
     products: [
-      { title: "Laptops & workstations", desc: "Latitude, Vostro, Precision,for office, remote work and intensive use cases." },
+      { title: "Laptops & workstations", desc: "Dell Pro, XPS,for office, remote work and intensive use cases." },
       { title: "Servers & storage", desc: "PowerEdge and Dell storage solutions for on-premises or hybrid environments." },
       { title: "Monitors & peripherals", desc: "Monitors, docks, keyboards, mice and Dell-certified accessories." },
       { title: "Solutions for small teams", desc: "Configured bundles for organizations of 5 to 50 users,simple, efficient, scalable." },
