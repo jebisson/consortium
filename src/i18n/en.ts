@@ -54,7 +54,7 @@ const en: Translations = {
     ctaExplore: "Explore services →",
     sectionTitle: "Services",
     sectionDesc:
-      "Choose a service to learn more,each page includes a clear description and a quote request.",
+      "Choose a service to learn more, each page includes a clear description and a quote request.",
     featuredLabel: "Training & onboarding",
     featuredTitle: "Microsoft 365 & cybersecurity training",
     featuredTitleHighlight: " led by Miguel",
@@ -73,8 +73,8 @@ const en: Translations = {
       { title: "SharePoint Migration", desc: "Centralize your documents and simplify collaboration with SharePoint & Teams." },
       { title: "IT Advisory Service", desc: "Quote verification, consulting and recommendations." },
       { title: "Training & Onboarding", desc: "New employee onboarding + Microsoft 365 & cybersecurity training." },
-      { title: "IT Support,Managed Helpdesk", desc: "Flexible hour banks, remote assistance and on-site interventions." },
-      { title: "Authorized Dell Reseller", desc: "Laptops, workstations, servers,member pricing and expert advice." },
+      { title: "IT Support, Managed Helpdesk", desc: "Flexible hour banks, remote assistance and on-site interventions." },
+      { title: "Authorized Dell Reseller", desc: "Laptops, workstations, servers, member pricing and expert advice." },
       { title: "Power Automate", desc: "Approvals, notifications and automated workflows without complex code." },
     ],
     security: {
@@ -94,7 +94,7 @@ const en: Translations = {
     headerSubtitle: "Backup & Continuity",
     heroTitle: "Microsoft 365 Cloud Backup",
     heroDesc: "Real backup for Microsoft 365.",
-    heroDescLine2: "Recover your data in minutes,even after an incident.",
+    heroDescLine2: "Recover your data in minutes, even after an incident.",
     ctaActivate: "Enable backup",
     ctaWhy: "Why it's essential",
     pills: ["Exchange", "OneDrive", "SharePoint", "Teams", "Data in Canada"],
@@ -125,7 +125,7 @@ const en: Translations = {
     },
     restore: {
       title: "\"Hassle-free\" restoration",
-      desc: "Find an email, document or specific version,quickly,without disrupting anything else.",
+      desc: "Find an email, document or specific version, quickly, without disrupting anything else.",
     },
     howTitle: "How it works",
     steps: [
@@ -187,7 +187,7 @@ const en: Translations = {
   security: {
     title: "Microsoft 365 Security – Consortium",
     heroTitle: "Make cybersecurity a daily habit.",
-    heroSubtitle: "Security and digital resilience,Best practices and modernization with Microsoft 365.",
+    heroSubtitle: "Security and digital resilience, Best practices and modernization with Microsoft 365.",
     hoverHint: "Hover over each point to see the details.",
     auditLabel: "Infrastructure and security",
     auditTitle: "Microsoft 365 Security Audit",
@@ -292,7 +292,7 @@ const en: Translations = {
       {
         t: "Security training and culture",
         lead: [
-          "Ongoing employee awareness of digital threats,phishing, ransomware, social engineering,strengthens the first line of defense of any organization. Regular training and reminders integrated into Microsoft 365 promote a culture of vigilance.",
+          "Ongoing employee awareness of digital threats, phishing, ransomware, social engineering, strengthens the first line of defense of any organization. Regular training and reminders integrated into Microsoft 365 promote a culture of vigilance.",
         ],
       },
       {
@@ -329,7 +329,7 @@ const en: Translations = {
         intro: "Email is the main attack vector. A single click can compromise an account.",
         tips: [
           { title: "1. Beware of urgent requests", text: "Fraudsters use pressure and urgency." },
-          { title: "2. Verify the sender", text: "A name can be imitated,not an email domain." },
+          { title: "2. Verify the sender", text: "A name can be imitated, not an email domain." },
           { title: "3. Be careful with attachments", text: "Hover over links before clicking." },
         ],
         good: { label: "Good reflex:", text: "forward suspicious messages to the IT team." },
@@ -361,7 +361,7 @@ const en: Translations = {
     headerSubtitle: "Monitoring & Cybersecurity",
     heroTitle: "Datto RMM, Datto EDR & Kaseya 365",
     heroDesc:
-      "A proactive approach: monitor, fix, detect and respond,to reduce downtime and block modern threats.",
+      "A proactive approach: monitor, fix, detect and respond, to reduce downtime and block modern threats.",
     ctaPlans: "View plans",
     ctaQuote: "Request a quote",
     pills: [
@@ -412,7 +412,7 @@ const en: Translations = {
       ],
     },
     plansTitle: "Monthly plans",
-    plansSubtitle: "Choose your coverage level,simple, clear, no surprises.",
+    plansSubtitle: "Choose your coverage level, simple, clear, no surprises.",
     plans: [
       {
         title: "RMM + EDR",
@@ -429,7 +429,7 @@ const en: Translations = {
       {
         title: "Complete suite",
         price: "$14",
-        subtitle: "All-in,one invoice, zero blind spots",
+        subtitle: "All-in, one invoice, zero blind spots",
         bullets: ["Datto RMM + Datto EDR", "Kaseya 365", "Priority support", "Security review & roadmap", "One invoice, everything covered"],
         recommended: true,
       },
@@ -463,7 +463,7 @@ const en: Translations = {
     formNotesPh: "E.g.: remote work, servers, multiple sites, compliance requirements, etc.",
     compliance: {
       title: "Compliance & best practices",
-      desc: "These services improve visibility, detection and incident response,a solid foundation to reduce risks, support requirements (e.g.: Law 25) and document security management.",
+      desc: "These services improve visibility, detection and incident response, a solid foundation to reduce risks, support requirements (e.g.: Law 25) and document security management.",
     },
   },
 
@@ -473,11 +473,11 @@ const en: Translations = {
     heroLabel: "Training & onboarding",
     heroTitle: "Welcome, train and empower quickly",
     heroDesc:
-      "We help your new employees get off to a good start and your teams make better use of Microsoft 365,with short, clear training adapted to your reality.",
+      "We help your new employees get off to a good start and your teams make better use of Microsoft 365, with short, clear training adapted to your reality.",
     heroPills: ["New employees", "Microsoft 365", "Cybersecurity"],
     offresTitle: "Offerings",
     offresDesc:
-      "Concrete and easy-to-understand interventions,no unnecessary jargon, with fast results.",
+      "Concrete and easy-to-understand interventions, no unnecessary jargon, with fast results.",
     offers: [
       {
         title: "New employee onboarding",
@@ -534,7 +534,7 @@ const en: Translations = {
     ctaInclus: "See what's included",
     whyTitle: "Why an advisory service?",
     whyDesc:
-      "When budgets are tight, the most costly thing isn't the best solution,it's the wrong decision. We help you clarify options, measure risks, and choose a realistic path.",
+      "When budgets are tight, the most costly thing isn't the best solution, it's the wrong decision. We help you clarify options, measure risks, and choose a realistic path.",
     whyCards: [
       { title: "Compare & decide", desc: "Quotes, scope, exclusions, guarantees, operational impacts." },
       { title: "Reduce risks", desc: "Architecture validation, basic cybersecurity, \"quick wins\"." },
@@ -542,7 +542,7 @@ const en: Translations = {
     ],
     inclusTitle: "What's included",
     inclusDesc:
-      "An advisory service means analysis, recommendations and decision support,not daily IT operations.",
+      "An advisory service means analysis, recommendations and decision support, not daily IT operations.",
     inclusTag: "Neutral advice • decision-oriented",
     inclus: [
       { title: "Quote verification", desc: "Comparative analysis (price, scope, exclusions, guarantees) and recommendations to choose the best option." },
@@ -615,7 +615,7 @@ const en: Translations = {
       { icon: "🔍", title: "Advanced search", desc: "SharePoint's powerful search tools are accessible from Teams to quickly find documents and information without leaving your workspace." },
       { icon: "⚙️", title: "Process automation", desc: "Use Power Automate to create approval workflows, notifications and repetitive tasks directly from Teams." },
       { icon: "💬", title: "Improved communication", desc: "Discuss SharePoint documents and projects directly in Teams channels, facilitating communication and idea sharing." },
-      { icon: "🕒", title: "Document versioning", desc: "Return to any previous version of a document,ideal for tracking evolution and recovering lost changes." },
+      { icon: "🕒", title: "Document versioning", desc: "Return to any previous version of a document, ideal for tracking evolution and recovering lost changes." },
       { icon: "🔗", title: "Microsoft 365 integration", desc: "SharePoint and Teams natively integrate with Office 365, Power BI and OneNote for a consistent, productive experience." },
     ],
     ctaTitle: "Start your SharePoint migration",
@@ -631,20 +631,20 @@ const en: Translations = {
     title: "IT Support – Managed Helpdesk | Consortium",
     headerSubtitle: "Support & Helpdesk",
     heroTitle: "A human, responsive and flexible helpdesk",
-    heroDesc: "Hour banks adapted to your reality,remote and on-site support, without complex subscriptions.",
+    heroDesc: "Hour banks adapted to your reality, remote and on-site support, without complex subscriptions.",
     heroTags: ["Hour banks", "Remote support", "On-site", "Clear prioritization"],
     featuresTitle: "What we cover",
     featuresDesc: "Support designed for organizations that need help without managing an internal IT department.",
     features: [
-      { title: "Fast response", desc: "Incidents classified by priority,urgent issues first, routine requests handled in normal turnaround." },
+      { title: "Fast response", desc: "Incidents classified by priority, urgent issues first, routine requests handled in normal turnaround." },
       { title: "Remote support", desc: "Most incidents are resolved remotely, without travel or unnecessary delays." },
-      { title: "On-site interventions", desc: "When a physical presence is needed, we come to you,within your hour bank." },
+      { title: "On-site interventions", desc: "When a physical presence is needed, we come to you, within your hour bank." },
       { title: "Transparent tracking", desc: "Every request is documented. You know what was done, when, and how many hours were used." },
-      { title: "User support", desc: "Workstation setup, Microsoft 365 access, printers, VPN,everyday issues handled quickly." },
+      { title: "User support", desc: "Workstation setup, Microsoft 365 access, printers, VPN, everyday issues handled quickly." },
       { title: "Built-in advisory", desc: "We alert you when we detect something abnormal or an opportunity for improvement." },
     ],
     plansTitle: "Hour banks",
-    plansDesc: "Choose the bank that matches your volume,unused hours remain available.",
+    plansDesc: "Choose the bank that matches your volume, unused hours remain available.",
     plans: [
       { title: "10h Bank", hours: "10h", subtitle: "For occasional needs", bullets: ["Occasional incidents", "Basic user support", "Remote assistance included", "Valid 6 months"] },
       { title: "20h Bank", hours: "20h", subtitle: "For regular use", bullets: ["Priority reactive support", "Remote + on-site", "Hour consumption tracking", "Valid 6 months"] },
@@ -652,7 +652,7 @@ const en: Translations = {
     ],
     priceNote: "* Rates on request. Conditions vary by location and intervention type.",
     ctaTitle: "Request a quote",
-    ctaDesc: "Describe your context and usual volume,we'll get back to you with a tailored proposal.",
+    ctaDesc: "Describe your context and usual volume, we'll get back to you with a tailored proposal.",
     ctaOpenBtn: "Open form",
     formTitle: "Request – IT Support",
     formCloseBtn: "Close",
@@ -674,28 +674,28 @@ const en: Translations = {
   dell: {
     title: "Authorized Dell Reseller – Consortium",
     headerSubtitle: "Hardware & Equipment",
-    heroTitle: "Dell equipment,member pricing, IT expertise",
+    heroTitle: "Dell equipment, member pricing, IT expertise",
     heroDesc: "As an authorized Dell reseller, we guide you through purchasing and configuring your IT equipment.",
     heroTags: ["Authorized reseller", "Member pricing", "Expert advice", "Configuration included"],
     badgeText: "Authorized Dell Reseller",
     advantagesTitle: "Why go through Consortium",
-    advantagesDesc: "More than a simple purchase,support from selection to deployment.",
+    advantagesDesc: "More than a simple purchase, support from selection to deployment.",
     advantages: [
       { title: "Authorized Dell reseller", desc: "Access to Dell's full product range with official warranties, manufacturer support and firmware updates." },
-      { title: "Advantageous member pricing", desc: "Negotiated pricing reserved for Consortium members,often below retail market rates." },
+      { title: "Advantageous member pricing", desc: "Negotiated pricing reserved for Consortium members, often below retail market rates." },
       { title: "Personalized advice", desc: "We help you choose the right equipment based on your actual needs, budget and IT environment." },
       { title: "Configuration & deployment", desc: "Devices can be pre-configured (name, domain, software) before delivery to reduce setup time." },
     ],
     productsTitle: "Available categories",
     productsDesc: "From laptops to servers, we cover all hardware needs.",
     products: [
-      { title: "Laptops & workstations", desc: "Dell Pro, XPS,for office, remote work and intensive use cases." },
+      { title: "Laptops & workstations", desc: "Dell Pro, XPS, for office, remote work and intensive use cases." },
       { title: "Servers & storage", desc: "PowerEdge and Dell storage solutions for on-premises or hybrid environments." },
       { title: "Monitors & peripherals", desc: "Monitors, docks, keyboards, mice and Dell-certified accessories." },
-      { title: "Solutions for small teams", desc: "Configured bundles for organizations of 5 to 50 users,simple, efficient, scalable." },
+      { title: "Solutions for small teams", desc: "Configured bundles for organizations of 5 to 50 users, simple, efficient, scalable." },
     ],
     ctaTitle: "Request a quote",
-    ctaDesc: "Tell us what you need (equipment type, quantity, approximate budget),we'll get back to you quickly.",
+    ctaDesc: "Tell us what you need (equipment type, quantity, approximate budget), we'll get back to you quickly.",
     ctaOpenBtn: "Open form",
     formTitle: "Request – Dell Equipment",
     formCloseBtn: "Close",
@@ -712,28 +712,28 @@ const en: Translations = {
     title: "Power Automate – Consortium",
     headerSubtitle: "Automation & Workflows",
     heroTitle: "Automate your processes with Power Automate",
-    heroDesc: "Reduce repetitive tasks and accelerate your workflows,approvals, notifications and integrations without complex code.",
+    heroDesc: "Reduce repetitive tasks and accelerate your workflows, approvals, notifications and integrations without complex code.",
     heroTags: ["Approvals", "Notifications", "Integrations", "Microsoft 365"],
     benefitsTitle: "Why automate",
     benefitsDesc: "Every hour saved on a repetitive task is an hour reinvested where you actually add value.",
     benefits: [
       { title: "Reduce manual tasks", desc: "Eliminate repetitive steps: copy-paste, manual sends, forgotten follow-ups." },
-      { title: "Automated approval flows", desc: "Leave requests, document validations, authorizations,all handled through a structured, traceable flow." },
-      { title: "Smart notifications", desc: "Automatic alerts in Teams or by email based on precise triggers,no manual monitoring." },
+      { title: "Automated approval flows", desc: "Leave requests, document validations, authorizations, all handled through a structured, traceable flow." },
+      { title: "Smart notifications", desc: "Automatic alerts in Teams or by email based on precise triggers, no manual monitoring." },
       { title: "Microsoft 365 integration", desc: "Power Automate integrates natively with SharePoint, Teams, Outlook, Excel and OneDrive." },
       { title: "Multi-system connectors", desc: "Connect your business software to Microsoft 365 via hundreds of available connectors." },
-      { title: "No coding required", desc: "Most automations are built without writing code,with structured guidance and support." },
+      { title: "No coding required", desc: "Most automations are built without writing code, with structured guidance and support." },
     ],
     usecasesTitle: "Concrete examples",
     usecasesDesc: "Simple, high-impact flows adapted to the realities of social economy organizations.",
     usecases: [
-      { title: "Document approval", desc: "A document dropped in SharePoint automatically triggers an approval request in Teams,with reminders if no response." },
+      { title: "Document approval", desc: "A document dropped in SharePoint automatically triggers an approval request in Teams, with reminders if no response." },
       { title: "New employee notification", desc: "When a new account is created in Microsoft 365, a flow automatically sends access credentials, guides and notifies managers." },
       { title: "Threshold alerts", desc: "An updated Excel spreadsheet triggers a Teams notification when a value exceeds a defined threshold." },
       { title: "Automated reports", desc: "Automatic generation and delivery of weekly or monthly reports without human intervention." },
     ],
     ctaTitle: "Start an automation project",
-    ctaDesc: "Describe the process you want to automate,we assess feasibility and propose a concrete approach.",
+    ctaDesc: "Describe the process you want to automate, we assess feasibility and propose a concrete approach.",
     ctaOpenBtn: "Open form",
     formTitle: "Request – Power Automate",
     formCloseBtn: "Close",
@@ -815,9 +815,9 @@ const en: Translations = {
     ],
     maxScore: 105,
     scoreLabels: [
-      { min: 0, max: 40, label: "Beginner level,several priorities to address", color: "text-red-400" },
-      { min: 41, max: 70, label: "Intermediate level,good foundation, targeted improvements recommended", color: "text-yellow-400" },
-      { min: 71, max: 105, label: "Advanced level,solid posture, maintain and refine", color: "text-green-400" },
+      { min: 0, max: 40, label: "Beginner level, several priorities to address", color: "text-red-400" },
+      { min: 41, max: 70, label: "Intermediate level, good foundation, targeted improvements recommended", color: "text-yellow-400" },
+      { min: 71, max: 105, label: "Advanced level, solid posture, maintain and refine", color: "text-green-400" },
     ],
   },
 };
