@@ -368,6 +368,12 @@ const currentPath = lang === "fr" ? "/fr/sauvegarde365" : "/en/backup365";
                       class="mt-4 w-full px-4 py-2 bg-white text-black rounded-lg font-semibold hover:bg-slate-100 transition">
                 {b.formSendBtn}
               </button>
+              <label class="flex items-start gap-2.5 cursor-pointer">
+                <input type="checkbox" required name="consent"
+                       class="mt-0.5 h-4 w-4 shrink-0 rounded"
+                       style="accent-color: var(--accent);" />
+                <span class="text-xs muted">{tr.common.consentLabel}</span>
+              </label>
               <button type="button" id="closeFormBtn"
                       class="mt-2 w-full px-4 py-2 bg-white/10 text-white rounded-lg font-medium border border-white/20 hover:bg-white/20 transition">
                 {common.close}

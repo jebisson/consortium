@@ -42,6 +42,7 @@ const fr: Translations = {
     law25: "Loi 25",
     optional: "(optionnel)",
     notes: "Notes (optionnel)",
+    consentLabel: "J'accepte, après avoir cliqué sur le bouton « Envoyer », que le Consortium utilise l'information fournie ci-dessus pour me contacter par message électronique ou par le téléphone au sujet de cette demande ainsi que ponctuellement au sujet des services du Consortium. Il est possible de se désinscrire des communications du Consortium à tout moment en écrivant à l'adresse communications@ressources.coop.",
   },
 
   home: {
@@ -594,7 +595,6 @@ const fr: Translations = {
     ],
     formMsgLabel: "Message",
     formSubmitBtn: "Envoyer",
-    formConsent: "En envoyant, vous acceptez que nous vous recontactions au sujet de cette demande.",
   },
 
   migration: {
@@ -624,7 +624,6 @@ const fr: Translations = {
     ctaBtn: "Demander une soumission →",
     formTitle: "Demande de soumission",
     formCloseBtn: "Fermer",
-    formConsent: "En envoyant, vous acceptez que nous vous recontactions au sujet de cette demande.",
   },
 
   support: {
@@ -668,7 +667,6 @@ const fr: Translations = {
     ],
     formMsgLabel: "Contexte et besoins",
     formSubmitBtn: "Envoyer la demande",
-    formConsent: "En envoyant, vous acceptez que nous vous recontactions au sujet de cette demande.",
   },
 
   dell: {
@@ -705,7 +703,6 @@ const fr: Translations = {
     formNeedLabel: "Type d'équipement recherché",
     formMsgLabel: "Détails (quantité, budget, usage prévu)",
     formSubmitBtn: "Envoyer la demande",
-    formConsent: "En envoyant, vous acceptez que nous vous recontactions au sujet de cette demande.",
   },
 
   automate: {
@@ -742,7 +739,6 @@ const fr: Translations = {
     formTelLabel: "Téléphone",
     formMsgLabel: "Processus à automatiser",
     formSubmitBtn: "Envoyer la demande",
-    formConsent: "En envoyant, vous acceptez que nous vous recontactions au sujet de cette demande.",
   },
 
   lexique: {

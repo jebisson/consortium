@@ -42,6 +42,7 @@ const en: Translations = {
     law25: "Law 25",
     optional: "(optional)",
     notes: "Notes (optional)",
+    consentLabel: "I agree, after clicking the \"Send\" button, that the Consortium may use the information provided above to contact me by email or by phone regarding this request and occasionally regarding the Consortium's services. You may unsubscribe from Consortium communications at any time by writing to communications@ressources.coop.",
   },
 
   home: {
@@ -594,7 +595,6 @@ const en: Translations = {
     ],
     formMsgLabel: "Message",
     formSubmitBtn: "Send",
-    formConsent: "By submitting, you agree that we may contact you regarding this request.",
   },
 
   migration: {
@@ -624,7 +624,6 @@ const en: Translations = {
     ctaBtn: "Request a quote →",
     formTitle: "Quote request",
     formCloseBtn: "Close",
-    formConsent: "By submitting, you agree that we may contact you regarding this request.",
   },
 
   support: {
@@ -668,7 +667,6 @@ const en: Translations = {
     ],
     formMsgLabel: "Context and needs",
     formSubmitBtn: "Send request",
-    formConsent: "By submitting, you agree that we may contact you regarding this request.",
   },
 
   dell: {
@@ -705,7 +703,6 @@ const en: Translations = {
     formNeedLabel: "Type of equipment needed",
     formMsgLabel: "Details (quantity, budget, intended use)",
     formSubmitBtn: "Send request",
-    formConsent: "By submitting, you agree that we may contact you regarding this request.",
   },
 
   automate: {
@@ -742,7 +739,6 @@ const en: Translations = {
     formTelLabel: "Phone",
     formMsgLabel: "Process to automate",
     formSubmitBtn: "Send request",
-    formConsent: "By submitting, you agree that we may contact you regarding this request.",
   },
 
   lexique: {

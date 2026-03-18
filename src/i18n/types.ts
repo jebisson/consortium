@@ -39,6 +39,7 @@ export interface CommonTranslations {
   law25: string;
   optional: string;
   notes: string;
+  consentLabel: string;
 }
 
 export interface HomeTranslations {
@@ -233,7 +234,6 @@ export interface ConseilTranslations {
   formTypes: { value: string; label: string }[];
   formMsgLabel: string;
   formSubmitBtn: string;
-  formConsent: string;
 }
 
 export interface MigrationTranslations {
@@ -250,7 +250,6 @@ export interface MigrationTranslations {
   ctaBtn: string;
   formTitle: string;
   formCloseBtn: string;
-  formConsent: string;
 }
 
 export interface SupportTranslations {
@@ -278,7 +277,6 @@ export interface SupportTranslations {
   formPlans: { value: string; label: string }[];
   formMsgLabel: string;
   formSubmitBtn: string;
-  formConsent: string;
 }
 
 export interface DellTranslations {
@@ -305,7 +303,6 @@ export interface DellTranslations {
   formNeedLabel: string;
   formMsgLabel: string;
   formSubmitBtn: string;
-  formConsent: string;
 }
 
 export interface AutomateTranslations {
@@ -330,7 +327,6 @@ export interface AutomateTranslations {
   formTelLabel: string;
   formMsgLabel: string;
   formSubmitBtn: string;
-  formConsent: string;
 }
 
 export interface LexiqueTranslations {

@@ -184,7 +184,12 @@ const currentPath = `/${lang}/power-automate`;
                               style="background: var(--accent); color: #111;">
                         {a.formSubmitBtn}
                       </button>
-                      <p class="text-xs muted">{a.formConsent}</p>
+                      <label class="flex items-start gap-2.5 cursor-pointer">
+                        <input type="checkbox" required name="consent"
+                               class="mt-0.5 h-4 w-4 shrink-0 rounded focus-ring"
+                               style="accent-color: var(--accent);" />
+                        <span class="text-xs muted">{tr.common.consentLabel}</span>
+                      </label>
                     </form>
                   </div>
                 </div>
