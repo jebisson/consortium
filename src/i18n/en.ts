@@ -472,7 +472,7 @@ const en: Translations = {
 
   formation: {
     title: "Training & Onboarding – Consortium",
-    headerSubtitle: "IT Services",
+    headerSubtitle: "Training & onboarding",
     heroLabel: "Training & onboarding",
     heroTitle: "Welcome, train and empower quickly",
     heroDesc:

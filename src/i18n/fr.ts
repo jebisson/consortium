@@ -472,7 +472,7 @@ const fr: Translations = {
 
   formation: {
     title: "Formations & intégration – Consortium",
-    headerSubtitle: "Services TI",
+    headerSubtitle: "Formations & intégration",
     heroLabel: "Formations & intégration",
     heroTitle: "Accueillir, former et rendre autonome rapidement",
     heroDesc:
