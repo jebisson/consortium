@@ -186,6 +186,7 @@ const fr: Translations = {
 
   security: {
     title: "Sécurité Microsoft 365 – Consortium",
+    headerSubtitle: "Sécurité Microsoft 365",
     heroTitle: "Faites de la cybersécurité un réflexe quotidien.",
     heroSubtitle: "Sécurité et résilience numérique. Bonnes pratiques et modernisation avec Microsoft 365.",
     hoverHint: "Survolez chaque point pour voir le détail.",

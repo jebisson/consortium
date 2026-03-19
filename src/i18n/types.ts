@@ -110,6 +110,7 @@ export interface BackupTranslations {
 
 export interface SecurityTranslations {
   title: string;
+  headerSubtitle: string;
   heroTitle: string;
   heroSubtitle: string;
   hoverHint: string;
