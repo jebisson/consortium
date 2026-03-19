@@ -39,7 +39,6 @@ export interface CommonTranslations {
   law25: string;
   optional: string;
   notes: string;
-  consentLabel: string;
 }
 
 export interface HomeTranslations {

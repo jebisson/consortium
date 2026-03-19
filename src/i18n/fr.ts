@@ -42,7 +42,6 @@ const fr: Translations = {
     law25: "Loi 25",
     optional: "(optionnel)",
     notes: "Notes (optionnel)",
-    consentLabel: "J'accepte, après avoir cliqué sur le bouton « Envoyer », que le Consortium utilise l'information fournie ci-dessus pour me contacter par message électronique ou par le téléphone au sujet de cette demande ainsi que ponctuellement au sujet des services du Consortium. Il est possible de se désinscrire des communications du Consortium à tout moment en écrivant à l'adresse communications@ressources.coop.",
   },
 
   home: {

@@ -10,6 +10,7 @@ export interface TenantConfig {
   logoSrc: string;
   faviconSrc: string;
   siteUrl: string;
+  consent: { fr: string; en: string };
   colors: {
     background: string;
     text: string;
@@ -28,6 +29,10 @@ const tenants: Record<string, TenantConfig> = {
     logoSrc: "/logo_consortium.png",
     faviconSrc: "/favicon-consortium.svg",
     siteUrl: "https://consortium-base.vercel.app",
+    consent: {
+      fr: "J'accepte, après avoir cliqué sur le bouton « Envoyer », que le Consortium utilise l'information fournie ci-dessus pour me contacter par message électronique ou par le téléphone au sujet de cette demande ainsi que ponctuellement au sujet des services du Consortium. Il est possible de se désinscrire des communications du Consortium à tout moment en écrivant à l'adresse communications@ressources.coop.",
+      en: "I agree, after clicking the \"Send\" button, that the Consortium may use the information provided above to contact me by email or by phone regarding this request and occasionally regarding the Consortium's services. You may unsubscribe from Consortium communications at any time by writing to communications@ressources.coop.",
+    },
     colors: {
       background: "rgb(18, 18, 18)",
       text: "#ffffff",
@@ -44,6 +49,10 @@ const tenants: Record<string, TenantConfig> = {
     logoSrc: "/eesad-logo.png",
     faviconSrc: "/favicon-eesad.svg",
     siteUrl: "https://eesad.vercel.app",
+    consent: {
+      fr: "J'accepte, après avoir cliqué sur le bouton « Envoyer », que l'EÉSAD utilise l'information fournie ci-dessus pour me contacter par message électronique ou par le téléphone au sujet de cette demande ainsi que ponctuellement au sujet des services de l'EÉSAD. Il est possible de se désinscrire des communications de l'EÉSAD à tout moment en écrivant à l'adresse communications@ressources.coop.",
+      en: "I agree, after clicking the \"Send\" button, that EÉSAD may use the information provided above to contact me by email or by phone regarding this request and occasionally regarding EÉSAD's services. You may unsubscribe from EÉSAD communications at any time by writing to communications@ressources.coop.",
+    },
     colors: {
       background: "rgb(12, 22, 65)",
       text: "#e5e7eb",

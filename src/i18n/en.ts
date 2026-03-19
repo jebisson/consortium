@@ -42,7 +42,6 @@ const en: Translations = {
     law25: "Law 25",
     optional: "(optional)",
     notes: "Notes (optional)",
-    consentLabel: "I agree, after clicking the \"Send\" button, that the Consortium may use the information provided above to contact me by email or by phone regarding this request and occasionally regarding the Consortium's services. You may unsubscribe from Consortium communications at any time by writing to communications@ressources.coop.",
   },
 
   home: {
