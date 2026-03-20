@@ -451,6 +451,7 @@ const fr: Translations = {
       ["Filtrage courriel", "—", "✅", "✅"],
       ["Protection Dark Web", "—", "✅", "✅"],
       ["Formation hameçonnage", "—", "✅", "✅"],
+      ["Sauvegarde 100 Go par licence", "—", "✅", "✅"],
     ],
     quoteTitle: "Demande de soumission",
     quoteDesc: "Indiquer le nombre d'utilisateurs et les services souhaités. On vous revient rapidement.",

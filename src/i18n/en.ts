@@ -451,6 +451,7 @@ const en: Translations = {
       ["Email filtering", "—", "✅", "✅"],
       ["Dark Web monitoring", "—", "✅", "✅"],
       ["Phishing simulation training", "—", "✅", "✅"],
+      ["100 GB backup per licence", "—", "✅", "✅"],
     ],
     quoteTitle: "Quote request",
     quoteDesc: "Indicate the number of users and desired services. We'll get back to you quickly.",
