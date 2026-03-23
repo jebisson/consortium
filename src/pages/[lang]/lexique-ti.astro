@@ -37,13 +37,13 @@ const currentPath = `/${lang}/lexique-ti`;
       padding: 0.625rem 1rem;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
-      color: white;
+      color: var(--text);
       font-size: 0.95rem;
       outline: none;
       transition: border-color 0.2s;
     }
     .search-input:focus { border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
-    .search-input::placeholder { color: rgba(255,255,255,0.45); }
+    .search-input::placeholder { color: color-mix(in srgb, var(--text) 45%, transparent); }
     .animate-fade-up { animation: fadeUp 0.5s ease both; }
     .animate-fade-up-delay-1 { animation-delay: 0.1s; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }

@@ -67,7 +67,7 @@ const tenants: Record<string, TenantConfig> = {
     id: "fqcs",
     name: "la FQCS",
     logoSrc: "/Logo_FQCS.png",
-    faviconSrc: "/favicon.svg",
+    faviconSrc: "/favicon-fqcs.svg",
     siteUrl: "https://fqcs.vercel.app",
     consent: {
       fr: "J'accepte, après avoir cliqué sur le bouton « Envoyer », que la FQCS utilise l'information fournie ci-dessus pour me contacter par message électronique ou par le téléphone au sujet de cette demande ainsi que ponctuellement au sujet des services de la FQCS. Il est possible de se désinscrire des communications de la FQCS à tout moment en écrivant à l'adresse communications@ressources.coop.",

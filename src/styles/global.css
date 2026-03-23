@@ -2,3 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure form inputs inside dark cards adapt to both light and dark themes */
+.card-dark input,
+.card-dark select,
+.card-dark textarea {
+  background: color-mix(in srgb, var(--text) 8%, transparent) !important;
+  border-color: color-mix(in srgb, var(--text) 20%, transparent) !important;
+  color: var(--text) !important;
+}
+.card-dark input::placeholder,
+.card-dark textarea::placeholder {
+  color: color-mix(in srgb, var(--text) 40%, transparent) !important;
+}
+.card-dark label,
+.card-dark p,
+.card-dark h3,
+.card-dark h4,
+.card-dark h5,
+.card-dark h6,
+.card-dark li,
+.card-dark span {
+  color: inherit;
+}
+

@@ -42,7 +42,7 @@ const { accent } = tenant.colors;
     .pill {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.10);
-      color: rgba(255,255,255,0.92);
+      color: color-mix(in srgb, var(--text) 92%, transparent);
     }
   </style>
 
@@ -115,7 +115,7 @@ const { accent } = tenant.colors;
                   )}
                 </div>
                 <div>
-                  <p class="font-semibold" style="color: white;">{c.title}</p>
+                  <p class="font-semibold" style="color: var(--text);">{c.title}</p>
                   <p class="mt-1 muted text-sm">{c.desc}</p>
                 </div>
               </div>
@@ -206,10 +206,10 @@ const { accent } = tenant.colors;
               )}
               <div class="hover-tint"></div>
               <div class="relative">
-                <h4 class="text-xl font-semibold" style="color: white;">{plan.title}</h4>
+                <h4 class="text-xl font-semibold" style="color: var(--text);">{plan.title}</h4>
                 <p class="mt-2 muted">{plan.subtitle}</p>
                 <p class="mt-5">
-                  <span class="font-extrabold text-5xl" style="color: white;">{plan.price}</span>
+                  <span class="font-extrabold text-5xl" style="color: var(--text);">{plan.price}</span>
                   <span class="muted"> {tr.rmm.pricingUnit}</span>
                 </p>
                 <ul class="mt-6 list-disc ml-6 space-y-2 soft text-sm">
@@ -234,7 +234,7 @@ const { accent } = tenant.colors;
           <div class="overflow-x-auto">
             <table class="w-full text-sm">
               <thead style="background: rgba(255,255,255,0.06);">
-                <tr class="text-white/80">
+                <tr class="" style="color: color-mix(in srgb, var(--text) 80%, transparent);">
                   {r.compHeaders.map((h) => (
                     <th class="text-left px-5 py-4 font-semibold">{h}</th>
                   ))}
@@ -269,7 +269,7 @@ const { accent } = tenant.colors;
           <div class="pointer-events-none absolute inset-0 opacity-40"
                style="background: radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%);"></div>
           <div class="relative">
-            <h4 class="text-3xl font-semibold mb-3" style="color: white;">{r.quoteTitle}</h4>
+            <h4 class="text-3xl font-semibold mb-3" style="color: var(--text);">{r.quoteTitle}</h4>
             <p class="soft mb-6">{r.quoteDesc}</p>
             <button id="openQuoteBtn"
                     class="inline-flex items-center justify-center px-7 py-3 rounded-xl font-semibold transition hover:brightness-110"
@@ -278,30 +278,30 @@ const { accent } = tenant.colors;
             <div id="quoteFormContainer" class="overflow-hidden max-h-0 opacity-0 transition-all duration-500 mt-6">
               <form id="quoteForm" class="space-y-4 p-6 rounded-xl"
                     style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);">
-                <h5 class="text-xl font-semibold mb-2" style="color: white;">{r.formTitle}</h5>
+                <h5 class="text-xl font-semibold mb-2" style="color: var(--text);">{r.formTitle}</h5>
 
-                <label class="block text-sm font-medium" style="color: rgba(255,255,255,0.92);">{common.orgName}</label>
+                <label class="block text-sm font-medium" style="color: color-mix(in srgb, var(--text) 92%, transparent);">{common.orgName}</label>
                 <input type="text" name="quote_org" required class="w-full rounded-lg px-3 py-2"
                        style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.10); color: white;" />
 
-                <label class="block text-sm font-medium" style="color: rgba(255,255,255,0.92);">{common.email}</label>
+                <label class="block text-sm font-medium" style="color: color-mix(in srgb, var(--text) 92%, transparent);">{common.email}</label>
                 <input type="email" name="quote_email" required class="w-full rounded-lg px-3 py-2"
                        style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.10); color: white;" />
 
                 <div class="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-medium" style="color: rgba(255,255,255,0.92);">{r.formUsersLabel}</label>
+                    <label class="block text-sm font-medium" style="color: color-mix(in srgb, var(--text) 92%, transparent);">{r.formUsersLabel}</label>
                     <input type="number" name="quote_users" min="1" required class="w-full rounded-lg px-3 py-2"
                            style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.10); color: white;" />
                   </div>
                   <div>
-                    <label class="block text-sm font-medium" style="color: rgba(255,255,255,0.92);">{common.phone} {common.optional}</label>
+                    <label class="block text-sm font-medium" style="color: color-mix(in srgb, var(--text) 92%, transparent);">{common.phone} {common.optional}</label>
                     <input type="text" name="quote_phone" class="w-full rounded-lg px-3 py-2"
                            style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.10); color: white;" />
                   </div>
                 </div>
 
-                <h6 class="text-sm font-semibold mt-2" style="color: rgba(255,255,255,0.92);">{r.formServicesLabel}</h6>
+                <h6 class="text-sm font-semibold mt-2" style="color: color-mix(in srgb, var(--text) 92%, transparent);">{r.formServicesLabel}</h6>
                 <div class="grid md:grid-cols-2 gap-3 text-sm soft">
                   {r.formServices.map((svc) => (
                     <label class="flex items-center gap-2">
@@ -311,7 +311,7 @@ const { accent } = tenant.colors;
                   ))}
                 </div>
 
-                <label class="block text-sm font-medium mt-2" style="color: rgba(255,255,255,0.92);">{r.formNotesLabel}</label>
+                <label class="block text-sm font-medium mt-2" style="color: color-mix(in srgb, var(--text) 92%, transparent);">{r.formNotesLabel}</label>
                 <textarea name="quote_notes" rows="4" class="w-full rounded-lg px-3 py-2"
                           style="background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.10); color: white;"
                           placeholder={r.formNotesPh}></textarea>
@@ -343,7 +343,7 @@ const { accent } = tenant.colors;
             </svg>
           </div>
           <div>
-            <h4 class="text-xl font-semibold mb-2" style="color: white;">{r.compliance.title}</h4>
+            <h4 class="text-xl font-semibold mb-2" style="color: var(--text);">{r.compliance.title}</h4>
             <p class="soft leading-relaxed">{r.compliance.desc}</p>
           </div>
         </div>
