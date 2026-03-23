@@ -63,6 +63,26 @@ const tenants: Record<string, TenantConfig> = {
       cardBackground: "rgb(23, 45, 90)",
     },
   },
+  fqcs: {
+    id: "fqcs",
+    name: "la FQCS",
+    logoSrc: "/Logo_FQCS.png",
+    faviconSrc: "/favicon.svg",
+    siteUrl: "https://fqcs.vercel.app",
+    consent: {
+      fr: "J'accepte, après avoir cliqué sur le bouton « Envoyer », que la FQCS utilise l'information fournie ci-dessus pour me contacter par message électronique ou par le téléphone au sujet de cette demande ainsi que ponctuellement au sujet des services de la FQCS. Il est possible de se désinscrire des communications de la FQCS à tout moment en écrivant à l'adresse communications@ressources.coop.",
+      en: "I agree, after clicking the \"Send\" button, that FQCS may use the information provided above to contact me by email or by phone regarding this request and occasionally regarding FQCS's services. You may unsubscribe from FQCS communications at any time by writing to communications@ressources.coop.",
+    },
+    colors: {
+      background: "#ffffff",
+      text: "#1f2937",
+      accent: "#6B3FA0",
+      border: "rgba(107, 63, 160, 0.30)",
+      bandBackground: "#f3edf9",
+      glowColor: "rgba(107, 63, 160, 0.22)",
+      cardBackground: "#faf7fc",
+    },
+  },
 };
 
 function getActiveTenant(): TenantConfig {
