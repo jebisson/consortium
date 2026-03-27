@@ -39,6 +39,24 @@ export interface CommonTranslations {
   law25: string;
   optional: string;
   notes: string;
+  companyName: string;
+  contactPerson: string;
+  contactTitle: string;
+  address: string;
+  streetAddress: string;
+  city: string;
+  province: string;
+  postalCode: string;
+  memberQuestion: string;
+  federationQuestion: string;
+  companyTypeQuestion: string;
+  yes: string;
+  no: string;
+  dontKnow: string;
+  cooperative: string;
+  mutuelle: string;
+  obnl: string;
+  other: string;
 }
 
 export interface HomeTranslations {
